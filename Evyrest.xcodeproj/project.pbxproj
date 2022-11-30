@@ -13,6 +13,7 @@
 		42FBACE829364BAF00B5B58A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FBACE729364BAF00B5B58A /* Preview Assets.xcassets */; };
 		AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */; };
 		AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */; };
+		AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */; };
 		CE2066F82936CB2C008FC95B /* ImageSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F72936CB2C008FC95B /* ImageSourcing.swift */; };
 		CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F92937B92B008FC95B /* LoginView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		42FBACE729364BAF00B5B58A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPropertyWrapper.swift; sourceTree = "<group>"; };
 		CE2066F72936CB2C008FC95B /* ImageSourcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourcing.swift; sourceTree = "<group>"; };
 		CE2066F92937B92B008FC95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 			children = (
 				AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */,
 				AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */,
+				AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2066F82936CB2C008FC95B /* ImageSourcing.swift in Sources */,
+				AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */,
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
