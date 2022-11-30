@@ -12,6 +12,8 @@ struct LoginView: View {
     @State var username = ""
     @State var password = ""
     
+    @ObservedObject var sourceRepoFetcher: SourcedRepoFetcher
+    
     var body: some View {
         VStack {
             Image("evyrest_image")
@@ -44,7 +46,9 @@ struct LoginView: View {
                 
             }
             Button(action: {
-                
+                Task {
+                    try? await sourceRepoFetcher.login(username: username, password: password)
+                }
             }) {
                 Text("Log in")
                     .padding()
@@ -61,6 +65,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(sourceRepoFetcher: SourcedRepoFetcher())
     }
 }
