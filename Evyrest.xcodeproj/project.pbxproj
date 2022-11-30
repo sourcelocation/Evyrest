@@ -17,8 +17,9 @@
 		AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567B2937E2030037B6AA /* StorageManager.swift */; };
 		AA5A567F2937E7750037B6AA /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567E2937E7750037B6AA /* Color++.swift */; };
 		AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56802937EA1A0037B6AA /* Constants.swift */; };
-		CE2066F82936CB2C008FC95B /* ImageSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F72936CB2C008FC95B /* ImageSourcing.swift */; };
 		CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F92937B92B008FC95B /* LoginView.swift */; };
+		CEA54ACD2937EC44000920C6 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */; };
+		CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +34,9 @@
 		AA5A567B2937E2030037B6AA /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AA5A567E2937E7750037B6AA /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
 		AA5A56802937EA1A0037B6AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CE2066F72936CB2C008FC95B /* ImageSourcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourcing.swift; sourceTree = "<group>"; };
 		CE2066F92937B92B008FC95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
+		CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSourcing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +69,9 @@
 		42FBACDF29364BAB00B5B58A /* Evyrest */ = {
 			isa = PBXGroup;
 			children = (
+				CEA54ACA2937EC44000920C6 /* API */,
 				42FBACE029364BAB00B5B58A /* EvyrestApp.swift */,
 				AA5A56712937D7EF0037B6AA /* Views */,
-				CE2066F62936CB21008FC95B /* Wrappers */,
 				AA5A56722937D94B0037B6AA /* Utilities */,
 				42FBACE429364BAF00B5B58A /* Assets.xcassets */,
 				42FBACE629364BAF00B5B58A /* Preview Content */,
@@ -131,12 +133,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CE2066F62936CB21008FC95B /* Wrappers */ = {
+		CEA54ACA2937EC44000920C6 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				CE2066F72936CB2C008FC95B /* ImageSourcing.swift */,
+				CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */,
+				CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */,
 			);
-			path = Wrappers;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2066F82936CB2C008FC95B /* ImageSourcing.swift in Sources */,
 				AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */,
+				CEA54ACD2937EC44000920C6 /* SourcedRepoFetcher.swift in Sources */,
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
@@ -218,6 +221,7 @@
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
 				AA5A567F2937E7750037B6AA /* Color++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
+				CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
