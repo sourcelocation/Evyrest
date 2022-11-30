@@ -9,18 +9,13 @@ import Foundation
 
 
 class ImageSourcing: ObservableObject {
-    enum APISource: String, CaseIterable {
+    
+    static let shared = ImageSourcing()
+    
+    enum APISource: String, CaseIterable, Codable {
         case pexels = "Pexels"
         case unsplash = "Unsplash"
         case microsoft = "Microsoft"
         case local = "Local"
-    }
-    
-    /// API source to fetch images from
-    @Published public var apiSource: APISource
-    
-    
-    init(apiSource: APISource) {
-        self.apiSource = apiSource
     }
 }

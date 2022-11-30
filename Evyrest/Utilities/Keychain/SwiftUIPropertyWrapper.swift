@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 @propertyWrapper
-struct KeychainStorage<String>: DynamicProperty {
-    private let key: String?
+struct KeychainStorage: DynamicProperty {
+    private let key: String
 
-    var wrappedValue: String {
+    var wrappedValue: String? {
         get {
             getValue()
         }
@@ -22,12 +22,16 @@ struct KeychainStorage<String>: DynamicProperty {
         }
     }
     
-    func getValue() -> String {
+    func getValue() -> String? {
         KeychainWrapper.standard.string(forKey: key)
     }
     
-    func setValue(_ val: String) {
-        KeychainWrapper.standard.set(val, forKey: key)
+    func setValue(_ val: String?) {
+        if let val = val {
+            KeychainWrapper.standard.set(val, forKey: key)
+        } else {
+            KeychainWrapper.standard.removeObject(forKey: key)
+        }
     }
     
     init(_ key: String) {
