@@ -21,6 +21,6 @@ class SourcedRepoFetcher: ObservableObject {
         request.addValue("Basic \(authBase64)", forHTTPHeaderField: "Authorization")
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         
-        print(response)
+//        print(response)
     }
 }
