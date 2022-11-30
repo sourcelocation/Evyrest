@@ -17,7 +17,7 @@ struct ContentView: View {
             sourceLocation
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(alignment: .topLeading, content: {
+        .overlay(alignment: .topTrailing, content: {
             Text("gm")
         })
         .background {

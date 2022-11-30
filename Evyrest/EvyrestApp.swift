@@ -16,6 +16,7 @@ struct EvyrestApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(sourceRepoFetcher)
+                .preferredColorScheme(.dark)
         }
     }
 }
