@@ -69,7 +69,6 @@
 		42FBACDF29364BAB00B5B58A /* Evyrest */ = {
 			isa = PBXGroup;
 			children = (
-				CEA54ACA2937EC44000920C6 /* API */,
 				42FBACE029364BAB00B5B58A /* EvyrestApp.swift */,
 				AA5A56712937D7EF0037B6AA /* Views */,
 				AA5A56722937D94B0037B6AA /* Utilities */,
@@ -99,6 +98,7 @@
 		AA5A56722937D94B0037B6AA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CEA54ACA2937EC44000920C6 /* API */,
 				AA5A567D2937E7640037B6AA /* Extensions */,
 				AA5A567A2937E1EA0037B6AA /* Storage */,
 				AA5A56732937D96F0037B6AA /* Keychain */,
