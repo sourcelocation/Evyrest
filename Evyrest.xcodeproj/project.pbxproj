@@ -15,6 +15,8 @@
 		AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */; };
 		AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */; };
 		AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567B2937E2030037B6AA /* StorageManager.swift */; };
+		AA5A567F2937E7750037B6AA /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567E2937E7750037B6AA /* Color++.swift */; };
+		AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56802937EA1A0037B6AA /* Constants.swift */; };
 		CE2066F82936CB2C008FC95B /* ImageSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F72936CB2C008FC95B /* ImageSourcing.swift */; };
 		CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F92937B92B008FC95B /* LoginView.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 		AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPropertyWrapper.swift; sourceTree = "<group>"; };
 		AA5A567B2937E2030037B6AA /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		AA5A567E2937E7750037B6AA /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
+		AA5A56802937EA1A0037B6AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE2066F72936CB2C008FC95B /* ImageSourcing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourcing.swift; sourceTree = "<group>"; };
 		CE2066F92937B92B008FC95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,8 +97,10 @@
 		AA5A56722937D94B0037B6AA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AA5A567D2937E7640037B6AA /* Extensions */,
 				AA5A567A2937E1EA0037B6AA /* Storage */,
 				AA5A56732937D96F0037B6AA /* Keychain */,
+				AA5A56802937EA1A0037B6AA /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -115,6 +121,14 @@
 				AA5A567B2937E2030037B6AA /* StorageManager.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		AA5A567D2937E7640037B6AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA5A567E2937E7750037B6AA /* Color++.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CE2066F62936CB21008FC95B /* Wrappers */ = {
@@ -200,7 +214,9 @@
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
+				AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
+				AA5A567F2937E7750037B6AA /* Color++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 			);

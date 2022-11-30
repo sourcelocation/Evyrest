@@ -13,16 +13,39 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image("Evyrest")
-                .padding(.horizontal)
+            header
+            sourceLocation
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .topLeading, content: {
+            Text("gm")
+        })
         .background {
             Image("Background")
                 .resizable()
                 .scaledToFill()
+                .blur(radius: 10)
                 .ignoresSafeArea()
-                .blur(radius: 5)
+        }
+        .background(Color("BackgroundColor"))
+        .safeAreaInset(edge: .bottom) {
+            Text(copyrightLine)
+        }
+    }
+    
+    @ViewBuilder
+    var header: some View {
+        Image("Evyrest")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding()
+            .frame(maxWidth: 175)
+    }
+    
+    @ViewBuilder
+    var sourceLocation: some View {
+        VStack {
+            
         }
     }
 }
