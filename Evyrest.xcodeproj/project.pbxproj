@@ -56,8 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				42FBACE029364BAB00B5B58A /* EvyrestApp.swift */,
-				42FBACE229364BAB00B5B58A /* ContentView.swift */,
-				CE2066F92937B92B008FC95B /* LoginView.swift */,
+				AA5A56712937D7EF0037B6AA /* Views */,
 				CE2066F62936CB21008FC95B /* Wrappers */,
 				42FBACE429364BAF00B5B58A /* Assets.xcassets */,
 				42FBACE629364BAF00B5B58A /* Preview Content */,
@@ -71,6 +70,15 @@
 				42FBACE729364BAF00B5B58A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AA5A56712937D7EF0037B6AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42FBACE229364BAB00B5B58A /* ContentView.swift */,
+				CE2066F92937B92B008FC95B /* LoginView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE2066F62936CB21008FC95B /* Wrappers */ = {
@@ -283,14 +291,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Evyrest/Preview Content\"";
-				DEVELOPMENT_TEAM = 6PLT5H8P6V;
+				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,14 +320,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Evyrest/Preview Content\"";
-				DEVELOPMENT_TEAM = 6PLT5H8P6V;
+				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
