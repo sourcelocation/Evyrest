@@ -20,6 +20,7 @@
 		CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F92937B92B008FC95B /* LoginView.swift */; };
 		CEA54ACD2937EC44000920C6 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */; };
 		CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */; };
+		CEBA3F1A293A891D00CE4BB3 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3F19293A891C00CE4BB3 /* MotionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CE2066F92937B92B008FC95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSourcing.swift; sourceTree = "<group>"; };
+		CEBA3F19293A891C00CE4BB3 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				AA5A567A2937E1EA0037B6AA /* Storage */,
 				AA5A56732937D96F0037B6AA /* Keychain */,
 				AA5A56802937EA1A0037B6AA /* Constants.swift */,
+				CEBA3F19293A891C00CE4BB3 /* MotionManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
 				AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
+				CEBA3F1A293A891D00CE4BB3 /* MotionManager.swift in Sources */,
 				AA5A567F2937E7750037B6AA /* Color++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
 				CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */,

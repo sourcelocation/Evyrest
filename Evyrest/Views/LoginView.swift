@@ -41,6 +41,7 @@ struct LoginView: View {
             SecureField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
                 .padding(10)
+            
             Spacer()
             Button("Forgot password?") {
                 
