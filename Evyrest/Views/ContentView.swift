@@ -13,9 +13,6 @@ struct ContentView: View {
     @KeychainStorage("userToken") var userToken: String?
     @AppStorage("enabled") var enabled: Bool = false
     
-    var motion = CMMotionManager()
-    @State
-    
     var body: some View {
         VStack {
             header
@@ -34,30 +31,15 @@ struct ContentView: View {
             Image("Background")
                 .resizable()
                 .scaledToFill()
-                .blur(radius: 10)
+                .blur(radius: 5)
                 .ignoresSafeArea()
+                .parallaxed(magnitude: 1.5)
         }
         .background(Color("BackgroundColor"))
         .safeAreaInset(edge: .bottom) {
             Text(copyrightLine)
                 .foregroundColor(.white)
                 .font(.footnote)
-        }
-        .onAppear {
-            // Initialize gyro
-            
-            self.motion.gyroUpdateInterval = 1.0 / 60.0
-            self.motion.startGyroUpdates()
-            
-            Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true, block: { t in
-                if let data = self.motion.gyroData {
-                    let x = data.rotationRate.x
-                    let y = data.rotationRate.y
-                    let z = data.rotationRate.z
-                    
-                    
-                }
-            })
         }
     }
     

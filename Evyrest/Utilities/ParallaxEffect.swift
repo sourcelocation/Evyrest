@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import SwiftUI
 import CoreMotion
 
 class MotionManager: ObservableObject {
@@ -14,6 +14,8 @@ class MotionManager: ObservableObject {
     @Published var pitch: Double = 0.0
     @Published var roll: Double = 0.0
 
+    static let shared = MotionManager()
+    
     private var manager: CMMotionManager
 
     init() {
@@ -30,6 +32,27 @@ class MotionManager: ObservableObject {
                 self.roll = motionData.attitude.roll
             }
         }
+    }
+}
 
+struct ParallaxMotionModifier: ViewModifier {
+    
+    @ObservedObject var manager = MotionManager.shared
+    var magnitude: Double
+    
+    func body(content: Content) -> some View {
+        let scale = magnitude * 2
+        let mag = magnitude * 15
+        content
+            .scaleEffect(scale, anchor: .center)
+            .offset(x: CGFloat(manager.roll * mag), y: CGFloat(manager.pitch * mag))
+            .animation(.spring(), value: manager.roll)
+            .animation(.spring(), value: manager.pitch)
+    }
+}
+
+extension View {
+    func parallaxed(magnitude: Double) -> some View {
+        modifier(ParallaxMotionModifier(magnitude: magnitude))
     }
 }
