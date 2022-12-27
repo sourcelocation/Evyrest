@@ -19,19 +19,7 @@ struct EvyrestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.dark)
                 .environmentObject(sourceRepoFetcher)
-                .onAppear {
-                    let locationManager = CLLocationManager()
-                    locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-                    locationManager.pausesLocationUpdatesAutomatically = false
-                    locationManager.allowsBackgroundLocationUpdates = true
-                    locationManager.requestAlwaysAuthorization()
-                }
-                .environmentObject(sourceRepoFetcher)
-        }
-        .onChange(of: phase) { _ in
-            setupColorScheme()
         }
     }
 

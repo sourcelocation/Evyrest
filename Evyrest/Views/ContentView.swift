@@ -22,6 +22,12 @@ struct ContentView: View {
             Spacer()
             Spacer()
             header
+            Spacer()
+            sourceLocation
+            Spacer()
+            Spacer()
+            Spacer()
+            header
             if !enabled {
                 Spacer()
             }
