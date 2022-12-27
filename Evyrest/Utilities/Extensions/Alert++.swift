@@ -7,7 +7,7 @@
 
 // MARK: cause *THEY SUCK* in SwiftUI :trollface:
 
-import Foundation
+import UIKit
 
 var currentUIAlertController: UIAlertController?
 
@@ -24,13 +24,13 @@ extension UIApplication {
             self.present(alert: currentUIAlertController!)
         }
     }
-    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool) {
+    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool = false) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if !noCancel {
-                currentUIAlertController?.addAction(.init(title: "Cancel", style: .cancel))
+                currentUIAlertController?.addAction(.init(title: "No", style: .cancel))
             }
-            currentUIAlertController?.addAction(.init(title: "OK", style: noCancel ? .cancel : .default, handler: { _ in
+            currentUIAlertController?.addAction(.init(title: "Yes", style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
             }))
             self.present(alert: currentUIAlertController!)
@@ -44,6 +44,7 @@ extension UIApplication {
     }
     
     func present(alert: UIAlertController) {
+        alert.view.tintColor = .init(red: 0, green: 0.255, blue: 0.349, alpha: 1)
         if var topController = self.windows[0].rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController

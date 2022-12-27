@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */; };
+		2122AF50295B331700BF7B0D /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4F295B331700BF7B0D /* MaterialView.swift */; };
+		2122AF52295B349400BF7B0D /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF51295B349400BF7B0D /* Alert++.swift */; };
 		42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE029364BAB00B5B58A /* EvyrestApp.swift */; };
 		42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE229364BAB00B5B58A /* ContentView.swift */; };
 		42FBACE529364BAF00B5B58A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FBACE429364BAF00B5B58A /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2122AF4F295B331700BF7B0D /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		2122AF51295B349400BF7B0D /* Alert++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		42FBACDD29364BAB00B5B58A /* Evyrest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evyrest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FBACE029364BAB00B5B58A /* EvyrestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvyrestApp.swift; sourceTree = "<group>"; };
 		42FBACE229364BAB00B5B58A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		AA5A56722937D94B0037B6AA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */,
 				CEA54ACA2937EC44000920C6 /* API */,
 				AA5A567D2937E7640037B6AA /* Extensions */,
 				AA5A567A2937E1EA0037B6AA /* Storage */,
@@ -183,9 +190,11 @@
 		AA5A567D2937E7640037B6AA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2122AF51295B349400BF7B0D /* Alert++.swift */,
 				AA5A567E2937E7750037B6AA /* Color++.swift */,
 				CE62634E294A409A00F7B237 /* String.swift */,
 				CE626350294A45E600F7B237 /* Alert++.swift */,
+				2122AF4F295B331700BF7B0D /* MaterialView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,18 +320,21 @@
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
+				2122AF50295B331700BF7B0D /* MaterialView.swift in Sources */,
 				AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */,
 				CE626351294A45E600F7B237 /* Alert++.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
 				CEF9199129401BF3007EF5F9 /* TSUtil.m in Sources */,
 				CEBA3F1A293A891D00CE4BB3 /* ParallaxEffect.swift in Sources */,
 				AA5A567F2937E7750037B6AA /* Color++.swift in Sources */,
+				2122AF52295B349400BF7B0D /* Alert++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
 				CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */,
 				CE62634F294A409A00F7B237 /* String.swift in Sources */,
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,
+				2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

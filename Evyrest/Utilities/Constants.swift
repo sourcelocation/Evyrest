@@ -7,4 +7,4 @@
 
 import Foundation
 
-let copyrightLine = "© 2022 sourcelocation & llsc12 with ♡"
+let copyrightLine = "© 2022 sourcelocation with ♡"

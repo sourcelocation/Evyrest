@@ -28,6 +28,7 @@ struct EvyrestApp: App {
                     locationManager.allowsBackgroundLocationUpdates = true
                     locationManager.requestAlwaysAuthorization()
                 }
+                .environmentObject(sourceRepoFetcher)
         }
         .onChange(of: phase) { _ in
             setupColorScheme()

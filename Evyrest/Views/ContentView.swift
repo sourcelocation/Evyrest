@@ -19,6 +19,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            Spacer()
             header
             if !enabled {
                 Spacer()
@@ -32,7 +34,16 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topTrailing, content: {
-            Text("gn")
+            HStack {
+                Spacer()
+                Button(action: {
+                    UIApplication.shared.alert(title: "Credits", body: "Made by sourcelocation.\n\nYeah, that button is there only for the looks lol")
+                }) {
+                    Image(systemName: "info.circle")
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(.horizontal)
         })
         .background(
                 Image("Background")
@@ -46,6 +57,13 @@ struct ContentView: View {
         .background(Color("BackgroundColor"))
         .popover(isPresented: $isLoginPresented) {
             LoginView()
+        }
+        .safeAreaInset(edge: .bottom) {
+            Text(copyrightLine)
+                .foregroundColor(.white)
+                .font(.footnote)
+                .multilineTextAlignment(.center)
+                .padding(.top, 2)
         }
         .onAppear {
             isLoginPresented = userToken == nil
@@ -95,12 +113,13 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal)
                         .animation(.spring().speed(2), value: imageSourcing.apiSource)
-                        .background(Color.init(red: 1, green: 1, blue: 1, opacity: 0.001))
+                        .background(Color(red: 1, green: 1, blue: 1, opacity: 0.00001))
                     }
                     .buttonStyle(.plain)
                     if ImageSourcing.APISource.allCases.last! != sourceType {
                         Divider()
                             .background(.white)
+                            .opacity(0.5)
                     }
                 }
             }
