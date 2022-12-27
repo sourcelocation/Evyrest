@@ -9,10 +9,12 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var username = ""
     @State var password = ""
     
-    @ObservedObject var sourceRepoFetcher: SourcedRepoFetcher
+    @EnvironmentObject var sourceRepoFetcher: SourcedRepoFetcher
     
     var body: some View {
         VStack {
@@ -38,6 +40,7 @@ struct LoginView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.horizontal, 10)
                 .padding(.top, 20)
+                .textInputAutocapitalization(.never)
             SecureField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
                 .padding(10)
@@ -48,7 +51,15 @@ struct LoginView: View {
             }
             Button(action: {
                 Task {
-                    try? await sourceRepoFetcher.login(username: username, password: password)
+                    do {
+                        try await sourceRepoFetcher.login(username: username, password: password)
+                        try await sourceRepoFetcher.linkDevice()
+                        dismiss()
+                    } catch {
+                        DispatchQueue.main.async {
+                            UIApplication.shared.alert(body: "\(error.localizedDescription)")
+                        }
+                    }
                 }
             }) {
                 Text("Log in")
@@ -66,6 +77,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(sourceRepoFetcher: SourcedRepoFetcher())
+        LoginView()
     }
 }
