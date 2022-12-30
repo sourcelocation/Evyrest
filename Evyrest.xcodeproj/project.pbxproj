@@ -23,6 +23,7 @@
 		AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */; };
 		AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567B2937E2030037B6AA /* StorageManager.swift */; };
 		AA5A567F2937E7750037B6AA /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567E2937E7750037B6AA /* Color++.swift */; };
+		AADAAF56295F268C0011A423 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADAAF55295F268C0011A423 /* AboutView.swift */; };
 		CE1A4F4A2942970B006C1B19 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4F492942970B006C1B19 /* CoreFoundation.framework */; };
 		CE1A4F4C29429717006C1B19 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4F4B29429717006C1B19 /* IOKit.framework */; };
 		CE1A4F502942B73E006C1B19 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1A4F4F2942B73E006C1B19 /* entitlements.plist */; };
@@ -68,6 +69,7 @@
 		AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPropertyWrapper.swift; sourceTree = "<group>"; };
 		AA5A567B2937E2030037B6AA /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AA5A567E2937E7750037B6AA /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
+		AADAAF55295F268C0011A423 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		CE1A4F47294293C2006C1B19 /* libxpc_datastores.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxpc_datastores.tbd; path = usr/lib/libxpc_datastores.tbd; sourceTree = SDKROOT; };
 		CE1A4F492942970B006C1B19 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CE1A4F4B29429717006C1B19 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -181,6 +183,7 @@
 				42FBACE229364BAB00B5B58A /* ContentView.swift */,
 				CE2066F92937B92B008FC95B /* LoginView.swift */,
 				21D702CC295F14AE007AD19D /* OptionsView.swift */,
+				AADAAF55295F268C0011A423 /* AboutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				2122AF52295B349400BF7B0D /* Alert++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
 				CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */,
+				AADAAF56295F268C0011A423 /* AboutView.swift in Sources */,
 				CE62634F294A409A00F7B237 /* String++.swift in Sources */,
 				21763939295DB97D0081518F /* ApplicationMonitor.swift in Sources */,
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,

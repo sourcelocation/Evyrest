@@ -16,7 +16,10 @@ struct ContentView: View {
     
     @AppStorage("userToken") var userToken: String?
     @State var loginPresented = false
-    @State var optionsPresented = false
+    
+    @State var optionsPresented = true
+    @State var aboutPresented = false
+
     
     var body: some View {
         ZStack {
@@ -48,9 +51,7 @@ struct ContentView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .sheet(isPresented: $loginPresented) {
-                LoginView()
-            }
+            .sheet(isPresented: $loginPresented, content: {LoginView()})
             .onAppear {
                 wallpaperController.setup()
                 #if targetEnvironment(simulator)
@@ -58,30 +59,41 @@ struct ContentView: View {
                 loginPresented = userToken == nil
                 #endif
             }
-            .blur(radius: optionsPresented ? 2 : 0)
-            .scaleEffect(optionsPresented ? 0.85 : 1)
+            .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
+            .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
             .animation(.spring(), value: optionsPresented)
-            
+            .animation(.spring(), value: aboutPresented)
+
             Color.black
                 .ignoresSafeArea()
-                .opacity(optionsPresented ? 0.5 : 0)
+                .opacity(optionsPresented || aboutPresented ? 0.5 : 0)
                 .animation(.spring(), value: optionsPresented)
+                .animation(.spring(), value: aboutPresented)
                 .onTapGesture {
                     if optionsPresented {
                         optionsPresented = false
                     }
+                    if aboutPresented {
+                        aboutPresented = false
+                    }
                 }
-            
-            OptionsView()
-                .frame(maxWidth: 300)
-                .background(MaterialView(.light)
-                    .opacity(0.75)
-                    .cornerRadius(20))
-                .padding()
-                .opacity(optionsPresented ? 1 : 0)
-                .scaleEffect(optionsPresented ? 1 : 0.9)
-//                .offset(x: 0, y: optionsPresented ? 0 : UIScreen.main.bounds.height / 3)
-                .animation(.spring().speed(1.5), value: optionsPresented)
+            // MARK: - Options & About
+            VStack {
+                if aboutPresented {
+                    AboutView()
+                } else if optionsPresented {
+                    OptionsView()
+                }
+            }
+            .frame(maxWidth: 300, maxHeight: 400)
+            .background(MaterialView(.light)
+                .opacity(0.75)
+                .cornerRadius(20))
+            .padding()
+            .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
+            .opacity(optionsPresented || aboutPresented ? 1 : 0)
+            .animation(.spring().speed(1.5), value: optionsPresented)
+            .animation(.spring().speed(1.5), value: aboutPresented)
         }
         
     }
@@ -151,9 +163,13 @@ struct ContentView: View {
     @ViewBuilder
     var button: some View {
         HStack(spacing:0) {
+            
+            // MARK: - Bottom row buttons
+            
             Button(action: {
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                UIApplication.shared.alert(title: "Credits", body: "Made by sourcelocation (with a bit of help from llsc12).\n\nMIT - Skittyblock/WallpaperSetter\nPublic Domain - rileytestut/Clip \n\nIdea - FreshWall by SparkDev")
+//                UIApplication.shared.alert(title: "Credits", body: "Made by sourcelocation (with a bit of help from llsc12).\n\nMIT - Skittyblock/WallpaperSetter\nPublic Domain - rileytestut/Clip \n\nIdea - FreshWall by SparkDev")
+                aboutPresented.toggle()
             }) {
                 Image(systemName: "info.circle")
                     .foregroundColor(.white)
@@ -221,7 +237,6 @@ struct ContentView: View {
                 .animation(.spring().speed(1), value: wallpaperController.enabled)
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

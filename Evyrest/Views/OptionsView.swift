@@ -32,6 +32,7 @@ struct OptionsView: View {
                 .cornerRadius(8)
                 .frame(height: 80)
             }
+            .padding()
             
             VStack(spacing: 8) {
                 HStack {
@@ -49,24 +50,66 @@ struct OptionsView: View {
                             .cornerRadius(8)
                     }
                 }
+                .padding()
                 ScrollView(.horizontal) {
                     LazyHStack {
+                        // put your code for the buttons here
+                        let egg: () -> Void = {
+                            print("egg")
+                        }
                         ForEach(0...10, id: \.self) { n in
-                            Button(action: {
-                                
-                            }) {
-                                Image("Background2")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 70)
-                                    .clipped()
-                                    .overlay(alignment: .bottom) {
-                                        MaterialView(.dark)
-                                            .frame(height: 40)
-                                            .opacity(0.75)
-                                        Image(systemName: "square.and.arrow.down")
+                            let isFirst = n == 0 // make sure these are valid or the styling wont work
+                            let isLast = n == 10
+                            
+                            if isFirst || isLast {
+                                if isFirst {
+                                    Button(action: egg) {
+                                        Image("Background2")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 70)
+                                            .clipped()
+                                            .overlay(alignment: .bottom) {
+                                                MaterialView(.dark)
+                                                    .frame(height: 40)
+                                                    .opacity(0.75)
+                                                Image(systemName: "square.and.arrow.down")
+                                            }
+                                            .cornerRadius(8)
                                     }
-                                    .cornerRadius(8)
+                                    .padding(.leading)
+                                } else {
+                                    Button(action: egg) {
+                                        Image("Background2")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 70)
+                                            .clipped()
+                                            .overlay(alignment: .bottom) {
+                                                MaterialView(.dark)
+                                                    .frame(height: 40)
+                                                    .opacity(0.75)
+                                                Image(systemName: "square.and.arrow.down")
+                                            }
+                                            .cornerRadius(8)
+                                    }
+                                    .padding(.trailing)
+                                }
+                            } else {
+                                Button(action: egg) {
+                                    Image("Background2")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 70)
+                                        .clipped()
+                                        .overlay(alignment: .bottom) {
+                                            MaterialView(.dark)
+                                                .frame(height: 40)
+                                                .opacity(0.75)
+                                            Image(systemName: "square.and.arrow.down")
+                                        }
+                                        .cornerRadius(8)
+                                }
                             }
                         }
                     }
@@ -74,7 +117,6 @@ struct OptionsView: View {
                 .frame(height: 150)
             }
         }
-        .padding()
         .foregroundColor(.white)
     }
 }
