@@ -19,24 +19,28 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            Spacer()
-            header
-            Spacer()
-            sourceLocation
-            Spacer()
-            Spacer()
-            Spacer()
-            header
-            if !enabled {
+            Group {
+                Spacer()
+                Spacer()
+                header
+                Spacer()
+                sourceLocation
+                Spacer()
+                Spacer()
                 Spacer()
             }
-            sourceLocation
-            if !enabled {
-                Spacer()
+            Group {
+                header
+                if !enabled {
+                    Spacer()
+                }
+                sourceLocation
+                if !enabled {
+                    Spacer()
+                }
+                button
+                footer
             }
-            button
-            footer
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .overlay(alignment: .topTrailing, content: {

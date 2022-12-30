@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */; };
-		2122AF50295B331700BF7B0D /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4F295B331700BF7B0D /* MaterialView.swift */; };
 		2122AF52295B349400BF7B0D /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF51295B349400BF7B0D /* Alert++.swift */; };
 		42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE029364BAB00B5B58A /* EvyrestApp.swift */; };
 		42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE229364BAB00B5B58A /* ContentView.swift */; };
@@ -24,7 +23,7 @@
 		CE1A4F4C29429717006C1B19 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4F4B29429717006C1B19 /* IOKit.framework */; };
 		CE1A4F502942B73E006C1B19 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1A4F4F2942B73E006C1B19 /* entitlements.plist */; };
 		CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F92937B92B008FC95B /* LoginView.swift */; };
-		CE62634F294A409A00F7B237 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62634E294A409A00F7B237 /* String.swift */; };
+		CE62634F294A409A00F7B237 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62634E294A409A00F7B237 /* String++.swift */; };
 		CE626351294A45E600F7B237 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE626350294A45E600F7B237 /* Alert++.swift */; };
 		CE626353294A46E700F7B237 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE626352294A46E700F7B237 /* MaterialView.swift */; };
 		CEA54ACD2937EC44000920C6 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */; };
@@ -50,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		2122AF4F295B331700BF7B0D /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		2122AF51295B349400BF7B0D /* Alert++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		42FBACDD29364BAB00B5B58A /* Evyrest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evyrest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FBACE029364BAB00B5B58A /* EvyrestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvyrestApp.swift; sourceTree = "<group>"; };
@@ -70,7 +68,7 @@
 		CE1A4F4F2942B73E006C1B19 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = entitlements.plist; sourceTree = SOURCE_ROOT; };
 		CE2066F92937B92B008FC95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CE4F34EA29428C84006F1B36 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
-		CE62634E294A409A00F7B237 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		CE62634E294A409A00F7B237 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		CE626350294A45E600F7B237 /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		CE626352294A46E700F7B237 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
@@ -192,9 +190,8 @@
 			children = (
 				2122AF51295B349400BF7B0D /* Alert++.swift */,
 				AA5A567E2937E7750037B6AA /* Color++.swift */,
-				CE62634E294A409A00F7B237 /* String.swift */,
+				CE62634E294A409A00F7B237 /* String++.swift */,
 				CE626350294A45E600F7B237 /* Alert++.swift */,
-				2122AF4F295B331700BF7B0D /* MaterialView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
-				2122AF50295B331700BF7B0D /* MaterialView.swift in Sources */,
 				AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */,
 				CE626351294A45E600F7B237 /* Alert++.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
@@ -330,7 +326,7 @@
 				2122AF52295B349400BF7B0D /* Alert++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
 				CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */,
-				CE62634F294A409A00F7B237 /* String.swift in Sources */,
+				CE62634F294A409A00F7B237 /* String++.swift in Sources */,
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,
