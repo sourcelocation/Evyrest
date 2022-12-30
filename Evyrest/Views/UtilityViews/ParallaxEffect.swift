@@ -47,11 +47,11 @@ struct ParallaxMotionModifier: ViewModifier {
     var magnitude: Double
     
     func body(content: Content) -> some View {
-        let scale = magnitude
+        let scale = (magnitude / 2) + 1
         let mag = magnitude * 15
         content
             .scaleEffect(scale, anchor: .center)
-            .offset(x: CGFloat(manager.roll * mag), y: CGFloat(manager.pitch * mag))
+            .offset(x: CGFloat((manager.roll * mag)), y: CGFloat((manager.pitch * mag)))
             .animation(.spring(), value: manager.roll)
             .animation(.spring(), value: manager.pitch)
     }
