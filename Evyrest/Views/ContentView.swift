@@ -60,10 +60,10 @@ struct ContentView: View {
                 .sheet(isPresented: $loginPresented, content: {LoginView()})
                 .onAppear {
                     wallpaperController.setup()
-#if targetEnvironment(simulator)
-#else
+                #if targetEnvironment(simulator) || DEBUG
+                #else
                     loginPresented = userToken == nil
-#endif
+                #endif
                 }
                 .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
                 .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
