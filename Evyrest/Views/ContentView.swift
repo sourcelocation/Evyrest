@@ -73,7 +73,7 @@ struct ContentView: View {
                 }
             
             VStack {
-                Text("Settings :fr:")
+                Text("")
                     .foregroundColor(.white)
                     .padding(.vertical, 200)
             }
@@ -83,7 +83,7 @@ struct ContentView: View {
                 .cornerRadius(20))
             .padding()
             .opacity(optionsPresented ? 1 : 0)
-            .animation(.spring(), value: optionsPresented)
+            .animation(.spring().speed(1.5), value: optionsPresented)
         }
         
     }
@@ -206,7 +206,7 @@ struct ContentView: View {
     @ViewBuilder
     var footer: some View {
         VStack(spacing: 0) {
-            Text(wallpaperController.enabled ? "Activated and currently running." : copyrightLine)
+            Text(wallpaperController.enabled ? "Activated and currently running." : "© 2022 sourcelocation with ♡")
                 .foregroundColor(.white)
                 .font(.footnote)
                 .padding(.top, 8)

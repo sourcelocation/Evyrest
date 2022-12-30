@@ -23,7 +23,6 @@
 		AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */; };
 		AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567B2937E2030037B6AA /* StorageManager.swift */; };
 		AA5A567F2937E7750037B6AA /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A567E2937E7750037B6AA /* Color++.swift */; };
-		AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56802937EA1A0037B6AA /* Constants.swift */; };
 		CE1A4F4A2942970B006C1B19 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4F492942970B006C1B19 /* CoreFoundation.framework */; };
 		CE1A4F4C29429717006C1B19 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4F4B29429717006C1B19 /* IOKit.framework */; };
 		CE1A4F502942B73E006C1B19 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1A4F4F2942B73E006C1B19 /* entitlements.plist */; };
@@ -69,7 +68,6 @@
 		AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPropertyWrapper.swift; sourceTree = "<group>"; };
 		AA5A567B2937E2030037B6AA /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AA5A567E2937E7750037B6AA /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
-		AA5A56802937EA1A0037B6AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE1A4F47294293C2006C1B19 /* libxpc_datastores.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxpc_datastores.tbd; path = usr/lib/libxpc_datastores.tbd; sourceTree = SDKROOT; };
 		CE1A4F492942970B006C1B19 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CE1A4F4B29429717006C1B19 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -111,6 +109,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21D702CA295F12AB007AD19D /* UtilityViews */ = {
+			isa = PBXGroup;
+			children = (
+				CE626352294A46E700F7B237 /* MaterialView.swift */,
+				CEBA3F19293A891C00CE4BB3 /* ParallaxEffect.swift */,
+			);
+			path = UtilityViews;
+			sourceTree = "<group>";
+		};
+		21D702CB295F12DF007AD19D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2176393D295DD4580081518F /* WallpaperController.swift */,
+				2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */,
+				21763938295DB97D0081518F /* ApplicationMonitor.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		21E6D48A295BA382009FF3C8 /* Private APIs */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,11 +161,13 @@
 				2176393B295DBB900081518F /* AppDelegate.swift */,
 				42FBACE029364BAB00B5B58A /* EvyrestApp.swift */,
 				CEA54ACA2937EC44000920C6 /* API */,
+				21D702CB295F12DF007AD19D /* Controllers */,
+				AA5A567D2937E7640037B6AA /* Extensions */,
 				21E6D48A295BA382009FF3C8 /* Private APIs */,
 				CE3C44B8294FA4B800E28A2D /* RemLog */,
 				CEF9198829401BF3007EF5F9 /* TS */,
-				AA5A56712937D7EF0037B6AA /* Views */,
 				AA5A56722937D94B0037B6AA /* Utilities */,
+				AA5A56712937D7EF0037B6AA /* Views */,
 				42FBACE429364BAF00B5B58A /* Assets.xcassets */,
 				42FBACE629364BAF00B5B58A /* Preview Content */,
 				CEF9199329401C15007EF5F9 /* Evyrest-Bridging-Header.h */,
@@ -167,6 +186,7 @@
 		AA5A56712937D7EF0037B6AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21D702CA295F12AB007AD19D /* UtilityViews */,
 				42FBACE229364BAB00B5B58A /* ContentView.swift */,
 				CE2066F92937B92B008FC95B /* LoginView.swift */,
 			);
@@ -176,15 +196,8 @@
 		AA5A56722937D94B0037B6AA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */,
-				AA5A567D2937E7640037B6AA /* Extensions */,
 				AA5A567A2937E1EA0037B6AA /* Storage */,
 				AA5A56732937D96F0037B6AA /* Keychain */,
-				AA5A56802937EA1A0037B6AA /* Constants.swift */,
-				CE626352294A46E700F7B237 /* MaterialView.swift */,
-				CEBA3F19293A891C00CE4BB3 /* ParallaxEffect.swift */,
-				21763938295DB97D0081518F /* ApplicationMonitor.swift */,
-				2176393D295DD4580081518F /* WallpaperController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -346,7 +359,6 @@
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
-				AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */,
 				CE626351294A45E600F7B237 /* Alert++.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
 				CEF9199129401BF3007EF5F9 /* TSUtil.m in Sources */,
