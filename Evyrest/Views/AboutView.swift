@@ -23,6 +23,7 @@ struct AboutView: View {
                 Text(app.localizedName()!)
             }
         }
+        .frame(maxHeight: 400)
     }
 }
 
