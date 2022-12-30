@@ -89,6 +89,7 @@ struct ContentView: View {
                 .opacity(0.75)
                 .cornerRadius(20))
             .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
+            .opacity(optionsPresented || aboutPresented ? 1 : 0)
             .animation(.spring().speed(1.5), value: optionsPresented)
             .animation(.spring().speed(1.5), value: aboutPresented)
         }
