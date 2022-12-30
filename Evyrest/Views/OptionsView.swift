@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OptionsView: View {
+    @AppStorage("cacheLimit") var cacheLimit: Double = 1
     var body: some View {
         VStack(spacing: 20) {
             Button(action: {
@@ -57,7 +58,7 @@ struct OptionsView: View {
                     }
                 }
                 .padding(.horizontal)
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
                         // put your code for the buttons here
                         let egg: () -> Void = {
@@ -78,7 +79,7 @@ struct OptionsView: View {
                                             .overlay(alignment: .bottom) {
                                                 MaterialView(.dark)
                                                     .frame(height: 40)
-                                                    .opacity(0.75)
+                                                    .opacity(0.5)
                                                 Image(systemName: "square.and.arrow.down")
                                             }
                                             .cornerRadius(8)
@@ -94,7 +95,7 @@ struct OptionsView: View {
                                             .overlay(alignment: .bottom) {
                                                 MaterialView(.dark)
                                                     .frame(height: 40)
-                                                    .opacity(0.75)
+                                                    .opacity(0.5)
                                                 Image(systemName: "square.and.arrow.down")
                                             }
                                             .cornerRadius(8)
@@ -111,7 +112,7 @@ struct OptionsView: View {
                                         .overlay(alignment: .bottom) {
                                             MaterialView(.dark)
                                                 .frame(height: 40)
-                                                .opacity(0.75)
+                                                .opacity(0.5)
                                             Image(systemName: "square.and.arrow.down")
                                         }
                                         .cornerRadius(8)
@@ -123,13 +124,20 @@ struct OptionsView: View {
                 .frame(height: 150)
             }
             
-            
-            HStack {
-                Text("Recents")
-                    .font(.headline)
-                Spacer()
+            VStack {
+                HStack {
+                    Text("Cache limit")
+                        .font(.headline)
+                    Spacer()
+                    Text(cacheLimit != 3 ? "\(String(format: "%g", Double(Int(cacheLimit * 10)) / 10.0))GB" : "∞")
+                }
+                .padding(.horizontal)
+                
+                Slider(value: $cacheLimit, in: 0.1...3)
+                    .tint(.init("BackgroundColor"))
+                    .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .padding(.bottom)
         }
         .foregroundColor(.white)
     }
