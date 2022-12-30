@@ -38,7 +38,7 @@ struct ContentView: View {
                     .animation(.spring().speed(0.5), value: wallpaperController.enabled)
                     .animation(.spring(), value: aboutPresented)
                     .animation(.spring(), value: optionsPresented)
-                    .parallaxed(magnitude: 1.2)
+                    .parallaxed(magnitude: 3)
                 VStack {
                     Spacer()
                     header
