@@ -22,86 +22,86 @@ struct ContentView: View {
     
     
     var body: some View {
-            ZStack {
-                VStack {
+        ZStack {
+            VStack {
+                Spacer()
+                header
+                if !wallpaperController.enabled {
                     Spacer()
-                    header
-                    if !wallpaperController.enabled {
-                        Spacer()
-                    }
-                    sourceLocation
-                    if !wallpaperController.enabled {
-                        Spacer()
-                        Spacer()
-                    }
-                    button
-                    footer
-                    if wallpaperController.enabled {
-                        Spacer()
-                    }
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .sheet(isPresented: $loginPresented, content: {LoginView()})
-                .onAppear {
-                    wallpaperController.setup()
-                #if targetEnvironment(simulator) || DEBUG
-                #else
-                    loginPresented = userToken == nil
-                #endif
+                sourceLocation
+                if !wallpaperController.enabled {
+                    Spacer()
+                    Spacer()
                 }
-                .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
-                .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
+                button
+                footer
+                if wallpaperController.enabled {
+                    Spacer()
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .sheet(isPresented: $loginPresented, content: {LoginView()})
+            .onAppear {
+                wallpaperController.setup()
+#if targetEnvironment(simulator) || DEBUG
+#else
+                loginPresented = userToken == nil
+#endif
+            }
+            .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
+            .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
+            .animation(.spring(), value: optionsPresented)
+            .animation(.spring(), value: aboutPresented)
+            
+            Color.black
+                .ignoresSafeArea()
+                .opacity(optionsPresented || aboutPresented ? 0.5 : 0)
                 .animation(.spring(), value: optionsPresented)
                 .animation(.spring(), value: aboutPresented)
-                
-                Color.black
-                    .ignoresSafeArea()
-                    .opacity(optionsPresented || aboutPresented ? 0.5 : 0)
-                    .animation(.spring(), value: optionsPresented)
-                    .animation(.spring(), value: aboutPresented)
-                    .onTapGesture {
-                        if optionsPresented {
-                            optionsPresented = false
-                        }
-                        if aboutPresented {
-                            aboutPresented = false
-                        }
+                .onTapGesture {
+                    if optionsPresented {
+                        optionsPresented = false
                     }
-                // MARK: - Options & About
-                ZStack {
-                    AboutView()
-                        .opacity(aboutPresented ? 1 : 0)
-                    OptionsView()
-                        .opacity(optionsPresented ? 1 : 0)
+                    if aboutPresented {
+                        aboutPresented = false
+                    }
                 }
-                .frame(maxWidth: 300)
-                .background(MaterialView(.light)
-                    .opacity(0.8)
-                    .cornerRadius(20))
-                .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
-                .opacity(optionsPresented || aboutPresented ? 1 : 0)
-                .animation(.spring().speed(1.5), value: optionsPresented)
-                .animation(.spring().speed(1.5), value: aboutPresented)
+            // MARK: - Options & About
+            ZStack {
+                AboutView()
+                    .opacity(aboutPresented ? 1 : 0)
+                OptionsView()
+                    .opacity(optionsPresented ? 1 : 0)
             }
-            .background(
-                ZStack {
-                    Color("BackgroundColor")
-                        .ignoresSafeArea()
-                    Image("Background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-                        .blur(radius: 5)
-                    
-                        .opacity(wallpaperController.enabled ? 0 : 1)
-                        .scaleEffect(wallpaperController.enabled ? 1.1 : 1)
-                        .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
-                        .animation(.spring().speed(0.5), value: wallpaperController.enabled)
-                        .animation(.spring(), value: aboutPresented)
-                        .animation(.spring(), value: optionsPresented)
-                        .parallaxed(magnitude: 1.2)   
-                }
-                )
+            .frame(maxWidth: 300)
+            .background(MaterialView(.light)
+                .opacity(0.8)
+                .cornerRadius(20))
+            .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
+            .opacity(optionsPresented || aboutPresented ? 1 : 0)
+            .animation(.spring().speed(1.5), value: optionsPresented)
+            .animation(.spring().speed(1.5), value: aboutPresented)
+        }
+        .background(
+            ZStack {
+                Color("BackgroundColor")
+                    .ignoresSafeArea()
+                Image("Background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                    .blur(radius: 3)
+                
+                    .opacity(wallpaperController.enabled ? 0 : 1)
+                    .scaleEffect(wallpaperController.enabled ? 1.1 : 1)
+                    .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
+                    .animation(.spring().speed(0.5), value: wallpaperController.enabled)
+                    .animation(.spring(), value: aboutPresented)
+                    .animation(.spring(), value: optionsPresented)
+                    .parallaxed(magnitude: 1.2)
+            }
+        )
     }
     
     @ViewBuilder

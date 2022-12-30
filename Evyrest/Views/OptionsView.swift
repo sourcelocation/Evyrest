@@ -158,9 +158,18 @@ struct OptionsView: View {
                     Text("Disable on Cellular")
                         .font(.headline)
                 }
-                .padding(.horizontal)
-                .tint(.init("BackgroundColor"))
+                
+                Toggle(isOn: $disableOnCellular) {
+                    Text("Lock screen")
+                        .font(.headline)
+                }
+                Toggle(isOn: $disableOnCellular) {
+                    Text("Home screen")
+                        .font(.headline)
+                }
             }
+            .padding(.horizontal)
+            .tint(.init("BackgroundColor"))
             .padding(.bottom)
         }
         .foregroundColor(.white)
