@@ -21,6 +21,7 @@ struct EvyrestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.dark)
                 .environmentObject(sourceRepoFetcher)
                 .onAppear {
                     ApplicationMonitor.shared.start()

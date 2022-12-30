@@ -8,9 +8,26 @@
 import SwiftUI
 
 struct AboutView: View {
-    var body: some View {
-        Text("About screen presumably")
+    
+    var apps: [LSApplicationProxy]
+    
+    init() {
+        apps = []
+        let allApps = LSApplicationWorkspace.default().allApplications().compactMap { return $0 }
+        apps = allApps
     }
+    
+    var body: some View {
+        ScrollView {
+            ForEach(apps) { app in
+                Text(app.localizedName()!)
+            }
+        }
+    }
+}
+
+extension LSApplicationProxy: Identifiable {
+    public var id: String { self.bundleIdentifier! }
 }
 
 struct AboutView_Previews: PreviewProvider {

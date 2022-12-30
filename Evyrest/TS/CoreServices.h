@@ -20,6 +20,15 @@ extern NSString *LSInstallTypeKey;
 @property (getter=isRestricted,nonatomic,readonly) BOOL restricted;
 @property (nonatomic,readonly) NSSet* claimedURLSchemes;
 @property (nonatomic,readonly) NSString* applicationType;
+@property(readonly) BOOL isContainerized;
+@property(readonly) BOOL isAppUpdate;
+@property(readonly) BOOL isBetaApp;
+@property(readonly) NSString * bundleVersion;
+@property(readonly) NSString * applicationIdentifier;
+@property(readonly) NSString * itemName;
+@property(readonly) NSString * minimumSystemVersion;
+@property(readonly) NSString * teamID;
+
 @end
 
 @interface LSApplicationWorkspace : NSObject
@@ -27,7 +36,9 @@ extern NSString *LSInstallTypeKey;
 - (BOOL)registerApplicationDictionary:(NSDictionary*)dict;
 - (BOOL)unregisterApplication:(id)arg1;
 - (BOOL)_LSPrivateRebuildApplicationDatabasesForSystemApps:(BOOL)arg1 internal:(BOOL)arg2 user:(BOOL)arg3;
-- (BOOL)openApplicationWithBundleID:(NSString *)arg1 ;
+- (NSArray<LSApplicationProxy*>*)allApplications;
+- (NSArray<LSApplicationProxy*>*)allInstalledApplications;
+- (BOOL)openApplicationWithBundleID:(NSString *)arg1;
 - (void)enumerateApplicationsOfType:(NSUInteger)type block:(void (^)(LSApplicationProxy*))block;
 - (BOOL)installApplication:(NSURL*)appPackageURL withOptions:(NSDictionary*)options error:(NSError**)error;
 - (BOOL)uninstallApplication:(NSString*)appId withOptions:(NSDictionary*)options;
