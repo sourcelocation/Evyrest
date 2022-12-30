@@ -32,19 +32,19 @@ class SourcedRepoFetcher: ObservableObject {
     
     /// Logs into Sourced and, if successful, returns a token
     func linkDevice() async throws {
-        guard let userToken = userToken else { throw "Not logged in. \(userToken)" }
+        guard let userToken = userToken else { throw "Not logged in. \(userToken ?? "Unknown User Token")" }
         var request = URLRequest(url: .init(string: serverURL + "account/linkDevice?id=\(udid())")!)
         request.httpMethod = "POST"
         request.addValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
         
-        let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
+        let (_, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         print(response.statusCode)
         switch response.statusCode {
         case 406:
             throw "You've reached maximum amount of linked devices to your account. Please remove some at repo.sourceloc.net/account/devices"
         case 208, 200: break
         default:
-            throw "Hm, something went wrong while linking the device. Error code 1-\(response.statusCode)"
+            throw "Something went wrong while linking the device. Error code 1-\(response.statusCode)"
         }
     }
     
