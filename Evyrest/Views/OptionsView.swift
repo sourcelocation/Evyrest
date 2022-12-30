@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OptionsView: View {
     @AppStorage("cacheLimit") var cacheLimit: Double = 1
+    @AppStorage("disableOnCellular") var disableOnCellular = true
+    
     var body: some View {
         VStack(spacing: 20) {
             Button(action: {
@@ -50,9 +52,8 @@ struct OptionsView: View {
                         
                     }) {
                         Text("Clear")
-                            .font(.footnote)
-                            .padding(.vertical, 6)
-                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 10)
                             .background(MaterialView(.light))
                             .cornerRadius(8)
                     }
@@ -136,6 +137,15 @@ struct OptionsView: View {
                 Slider(value: $cacheLimit, in: 0.1...3)
                     .tint(.init("BackgroundColor"))
                     .padding(.horizontal)
+            }
+            
+            VStack {
+                Toggle(isOn: $disableOnCellular) {
+                    Text("Disable on Cellular")
+                        .font(.headline)
+                }
+                .padding(.horizontal)
+                .tint(.init("BackgroundColor"))
             }
             .padding(.bottom)
         }
