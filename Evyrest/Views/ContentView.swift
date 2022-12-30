@@ -22,23 +22,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        GeometryReader { geometry in
             ZStack {
-                Color("BackgroundColor")
-                    .ignoresSafeArea()
-                Image("Background")
-                    .resizable()
-                    .aspectRatio(geometry.size, contentMode: .fill)
-                    .edgesIgnoringSafeArea(.all)
-                    .blur(radius: 5)
-                
-                    .opacity(wallpaperController.enabled ? 0 : 1)
-                    .scaleEffect(wallpaperController.enabled ? 1.1 : 1)
-                    .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
-                    .animation(.spring().speed(0.5), value: wallpaperController.enabled)
-                    .animation(.spring(), value: aboutPresented)
-                    .animation(.spring(), value: optionsPresented)
-                    .parallaxed(magnitude: 1.2)
                 VStack {
                     Spacer()
                     header
@@ -99,8 +83,25 @@ struct ContentView: View {
                 .animation(.spring().speed(1.5), value: optionsPresented)
                 .animation(.spring().speed(1.5), value: aboutPresented)
             }
-        }
-        
+            .background(
+                ZStack {
+                    Color("BackgroundColor")
+                        .ignoresSafeArea()
+                    Image("Background")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                        .blur(radius: 5)
+                    
+                        .opacity(wallpaperController.enabled ? 0 : 1)
+                        .scaleEffect(wallpaperController.enabled ? 1.1 : 1)
+                        .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
+                        .animation(.spring().speed(0.5), value: wallpaperController.enabled)
+                        .animation(.spring(), value: aboutPresented)
+                        .animation(.spring(), value: optionsPresented)
+                        .parallaxed(magnitude: 1.2)   
+                }
+                )
     }
     
     @ViewBuilder
