@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
