@@ -10,6 +10,7 @@ import SwiftUI
 struct OptionsView: View {
     @AppStorage("cacheLimit") var cacheLimit: Double = 1
     @AppStorage("disableOnCellular") var disableOnCellular = true
+    @State var wallpapers: [String] = Bool.random() ? Array(repeating: "Background2", count: 20) : []
     
     var body: some View {
         VStack(spacing: 20) {
@@ -51,44 +52,73 @@ struct OptionsView: View {
                     Button(action: {
                         
                     }) {
-                        Text("Clear")
-                            .padding(.vertical, 4)
-                            .padding(.horizontal, 10)
+                        Image(systemName: "xmark.bin.fill")
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 8)
                             .background(MaterialView(.light))
                             .cornerRadius(8)
                     }
                 }
                 .padding(.horizontal)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        // put your code for the buttons here
-                        let egg: () -> Void = {
-                            print("egg")
-                        }
-                        ForEach(0...10, id: \.self) { n in
-                            let isFirst = n == 0 // make sure these are valid or the styling wont work
-                            let isLast = n == 10
-                            
-                            if isFirst || isLast {
-                                if isFirst {
-                                    Button(action: egg) {
-                                        Image("Background2")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 70)
-                                            .clipped()
-                                            .overlay(alignment: .bottom) {
-                                                MaterialView(.dark)
-                                                    .frame(height: 40)
-                                                    .opacity(0.5)
-                                                Image(systemName: "square.and.arrow.down")
-                                            }
-                                            .cornerRadius(8)
+                if wallpapers.isEmpty {
+                    ZStack {
+                        MaterialView(.light)
+                            .frame(height: 48)
+                            .cornerRadius(12)
+                            .padding()
+                        Text("Recent wallpapers will appear here.")
+                            .font(.footnote)
+                    }
+                } else {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            // put your code for the buttons here
+                            let egg: () -> Void = {
+                                print("egg")
+                            }
+                            ForEach(0...wallpapers.count - 1, id: \.self) { n in
+                                let isFirst = n == 0 // make sure these are valid or the styling wont work
+                                let isLast = n == wallpapers.count - 1
+                                
+                                let wallpaper = wallpapers[n]
+                                
+                                if isFirst || isLast {
+                                    if isFirst {
+                                        Button(action: egg) {
+                                            Image(wallpaper)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 70)
+                                                .clipped()
+                                                .overlay(alignment: .bottom) {
+                                                    MaterialView(.dark)
+                                                        .frame(height: 40)
+                                                        .opacity(0.5)
+                                                    Image(systemName: "square.and.arrow.down")
+                                                }
+                                                .cornerRadius(8)
+                                        }
+                                        .padding(.leading)
+                                    } else {
+                                        Button(action: egg) {
+                                            Image(wallpaper)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 70)
+                                                .clipped()
+                                                .overlay(alignment: .bottom) {
+                                                    MaterialView(.dark)
+                                                        .frame(height: 40)
+                                                        .opacity(0.5)
+                                                    Image(systemName: "square.and.arrow.down")
+                                                }
+                                                .cornerRadius(8)
+                                        }
+                                        .padding(.trailing)
                                     }
-                                    .padding(.leading)
                                 } else {
                                     Button(action: egg) {
-                                        Image("Background2")
+                                        Image(wallpaper)
                                             .resizable()
                                             .scaledToFill()
                                             .frame(width: 70)
@@ -101,28 +131,12 @@ struct OptionsView: View {
                                             }
                                             .cornerRadius(8)
                                     }
-                                    .padding(.trailing)
-                                }
-                            } else {
-                                Button(action: egg) {
-                                    Image("Background2")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 70)
-                                        .clipped()
-                                        .overlay(alignment: .bottom) {
-                                            MaterialView(.dark)
-                                                .frame(height: 40)
-                                                .opacity(0.5)
-                                            Image(systemName: "square.and.arrow.down")
-                                        }
-                                        .cornerRadius(8)
                                 }
                             }
                         }
                     }
+                    .frame(height: 150)
                 }
-                .frame(height: 150)
             }
             
             VStack {
