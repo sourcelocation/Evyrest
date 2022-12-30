@@ -17,7 +17,6 @@
 		42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE029364BAB00B5B58A /* EvyrestApp.swift */; };
 		42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE229364BAB00B5B58A /* ContentView.swift */; };
 		42FBACE529364BAF00B5B58A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FBACE429364BAF00B5B58A /* Assets.xcassets */; };
-		42FBACE829364BAF00B5B58A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FBACE729364BAF00B5B58A /* Preview Assets.xcassets */; };
 		AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */; };
 		AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */; };
 		AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */; };
@@ -62,7 +61,6 @@
 		42FBACE029364BAB00B5B58A /* EvyrestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvyrestApp.swift; sourceTree = "<group>"; };
 		42FBACE229364BAB00B5B58A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42FBACE429364BAF00B5B58A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		42FBACE729364BAF00B5B58A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPropertyWrapper.swift; sourceTree = "<group>"; };
@@ -169,18 +167,9 @@
 				AA5A56722937D94B0037B6AA /* Utilities */,
 				AA5A56712937D7EF0037B6AA /* Views */,
 				42FBACE429364BAF00B5B58A /* Assets.xcassets */,
-				42FBACE629364BAF00B5B58A /* Preview Content */,
 				CEF9199329401C15007EF5F9 /* Evyrest-Bridging-Header.h */,
 			);
 			path = Evyrest;
-			sourceTree = "<group>";
-		};
-		42FBACE629364BAF00B5B58A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				42FBACE729364BAF00B5B58A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		AA5A56712937D7EF0037B6AA /* Views */ = {
@@ -340,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42FBACE829364BAF00B5B58A /* Preview Assets.xcassets in Resources */,
 				CE1A4F502942B73E006C1B19 /* entitlements.plist in Resources */,
 				42FBACE529364BAF00B5B58A /* Assets.xcassets in Resources */,
 			);
@@ -505,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Evyrest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -540,7 +528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Evyrest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
