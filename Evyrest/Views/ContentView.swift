@@ -78,20 +78,17 @@ struct ContentView: View {
                     }
                 }
             // MARK: - Options & About
-            VStack {
-                if aboutPresented {
-                    AboutView()
-                } else if optionsPresented {
-                    OptionsView()
-                }
+            ZStack {
+                AboutView()
+                    .opacity(aboutPresented ? 1 : 0)
+                OptionsView()
+                    .opacity(optionsPresented ? 1 : 0)
             }
-            .frame(maxWidth: 300, maxHeight: 400)
+            .frame(maxWidth: 300)
             .background(MaterialView(.light)
                 .opacity(0.75)
                 .cornerRadius(20))
-            .padding()
             .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
-            .opacity(optionsPresented || aboutPresented ? 1 : 0)
             .animation(.spring().speed(1.5), value: optionsPresented)
             .animation(.spring().speed(1.5), value: aboutPresented)
         }

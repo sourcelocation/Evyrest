@@ -22,8 +22,13 @@ struct OptionsView: View {
                     Color(hex: "00213A")
                         .opacity(0.3)
                         .clipped()
-                    Text("Nature")
-                        .font(.headline)
+                    VStack {
+                        Text("Current theme")
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                        Text("Nature")
+                            .font(.headline)
+                    }
                 }
                 .overlay(alignment: .trailing) {
                     Image(systemName: "chevron.right")
@@ -32,7 +37,8 @@ struct OptionsView: View {
                 .cornerRadius(8)
                 .frame(height: 80)
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
             
             VStack(spacing: 8) {
                 HStack {
@@ -43,14 +49,14 @@ struct OptionsView: View {
                         
                     }) {
                         Text("Clear")
-                            .font(.body)
+                            .font(.footnote)
                             .padding(.vertical, 6)
                             .padding(.horizontal, 8)
                             .background(MaterialView(.light))
                             .cornerRadius(8)
                     }
                 }
-                .padding()
+                .padding(.horizontal)
                 ScrollView(.horizontal) {
                     LazyHStack {
                         // put your code for the buttons here
@@ -116,6 +122,14 @@ struct OptionsView: View {
                 }
                 .frame(height: 150)
             }
+            
+            
+            HStack {
+                Text("Recents")
+                    .font(.headline)
+                Spacer()
+            }
+            .padding(.horizontal)
         }
         .foregroundColor(.white)
     }
