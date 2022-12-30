@@ -13,6 +13,7 @@
 		2176393C295DBB900081518F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176393B295DBB900081518F /* AppDelegate.swift */; };
 		2176393E295DD4580081518F /* WallpaperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176393D295DD4580081518F /* WallpaperController.swift */; };
 		21D1A1A3295C55A600AC45BB /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 21D1A1A2295C55A600AC45BB /* Dynamic */; };
+		21D702CD295F14AE007AD19D /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D702CC295F14AE007AD19D /* OptionsView.swift */; };
 		21E6D48C295BA395009FF3C8 /* WallpaperSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E6D48B295BA395009FF3C8 /* WallpaperSetter.swift */; };
 		42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE029364BAB00B5B58A /* EvyrestApp.swift */; };
 		42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE229364BAB00B5B58A /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		21763938295DB97D0081518F /* ApplicationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
 		2176393B295DBB900081518F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2176393D295DD4580081518F /* WallpaperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperController.swift; sourceTree = "<group>"; };
+		21D702CC295F14AE007AD19D /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		21E6D48B295BA395009FF3C8 /* WallpaperSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSetter.swift; sourceTree = "<group>"; };
 		42FBACDD29364BAB00B5B58A /* Evyrest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evyrest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FBACE029364BAB00B5B58A /* EvyrestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvyrestApp.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				21D702CA295F12AB007AD19D /* UtilityViews */,
 				42FBACE229364BAB00B5B58A /* ContentView.swift */,
 				CE2066F92937B92B008FC95B /* LoginView.swift */,
+				21D702CC295F14AE007AD19D /* OptionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,
 				2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */,
+				21D702CD295F14AE007AD19D /* OptionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

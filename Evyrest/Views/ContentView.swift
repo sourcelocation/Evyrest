@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @AppStorage("userToken") var userToken: String?
     @State var loginPresented = false
-    @State var optionsPresented = true
+    @State var optionsPresented = false
     
     var body: some View {
         ZStack {
@@ -73,9 +73,7 @@ struct ContentView: View {
                 }
             
             VStack {
-                Text("")
-                    .foregroundColor(.white)
-                    .padding(.vertical, 200)
+                OptionsView()
             }
             .frame(maxWidth: 300)
             .background(MaterialView(.light)
@@ -206,7 +204,8 @@ struct ContentView: View {
     @ViewBuilder
     var footer: some View {
         VStack(spacing: 0) {
-            Text(wallpaperController.enabled ? "Activated and currently running." : "© 2022 sourcelocation with ♡")
+            Text(wallpaperController.enabled ? "Enabled and currently running." : "© 2022 sourcelocation with ♡")
+
                 .foregroundColor(.white)
                 .font(.footnote)
                 .padding(.top, 8)
@@ -219,6 +218,7 @@ struct ContentView: View {
                 .font(.footnote)
                 .frame(maxHeight: wallpaperController.enabled ? nil : 0)
                 .opacity(wallpaperController.enabled ? 1 : 0)
+                .animation(.spring().speed(1), value: wallpaperController.enabled)
         }
     }
     
