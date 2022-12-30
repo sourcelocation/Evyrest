@@ -33,12 +33,6 @@ class MotionManager: ObservableObject {
             }
         }
     }
-    
-    deinit {
-        self.manager.stopDeviceMotionUpdates()
-        self.pitch = 0
-        self.roll = 0
-    }
 }
 
 struct ParallaxMotionModifier: ViewModifier {
