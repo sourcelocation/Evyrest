@@ -11,8 +11,10 @@ import CoreLocation
 @main
 struct EvyrestApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var sourceRepoFetcher = SourcedRepoFetcher()
     
+    let locationManager = LocationManager()
     
     @Environment(\.scenePhase) private var phase
 
@@ -20,6 +22,9 @@ struct EvyrestApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(sourceRepoFetcher)
+                .onAppear {
+                    ApplicationMonitor.shared.start()
+                }
         }
     }
 

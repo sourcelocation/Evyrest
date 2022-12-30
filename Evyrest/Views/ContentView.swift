@@ -8,72 +8,84 @@
 import SwiftUI
 import CoreMotion
 
+
+
 struct ContentView: View {
     
-    @ObservedObject var imageSourcing = ImageSourcing.shared
-    @ObservedObject var sourc = ImageSourcing.shared
-    @AppStorage("enabled") var enabled: Bool = false
+    @ObservedObject var wallpaperController = WallpaperController.shared
     
-    @KeychainStorage("userToken") var userToken: String?
-    @State var isLoginPresented = false
+    @AppStorage("userToken") var userToken: String?
+    @State var loginPresented = false
+    @State var optionsPresented = true
     
     var body: some View {
-        VStack {
-            Spacer()
-            Spacer()
-            header
-            Spacer()
-            sourceLocation
-            Spacer()
-            Spacer()
-            Spacer()
-            header
-            if !enabled {
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            Image("Background")
+                .resizable()
+                .scaledToFill()
+                .blur(radius: 5)
+                .ignoresSafeArea()
+                .opacity(wallpaperController.enabled ? 0 : 1)
+                .animation(.spring().speed(0.5), value: wallpaperController.enabled)
+                .parallaxed(magnitude: 1.2)
+            VStack {
                 Spacer()
-            }
-            sourceLocation
-            if !enabled {
-                Spacer()
-            }
-            button
-            footer
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(alignment: .topTrailing, content: {
-            HStack {
-                Spacer()
-                Button(action: {
-                    UIApplication.shared.alert(title: "Credits", body: "Made by sourcelocation.\n\nYeah, that button is there only for the looks lol")
-                }) {
-                    Image(systemName: "info.circle")
-                        .foregroundColor(.white)
+                header
+                if !wallpaperController.enabled {
+                    Spacer()
+                }
+                sourceLocation
+                if !wallpaperController.enabled {
+                    Spacer()
+                    Spacer()
+                }
+                button
+                footer
+                if wallpaperController.enabled {
+                    Spacer()
                 }
             }
-            .padding(.horizontal)
-        })
-        .background(
-                Image("Background")
-                    .resizable()
-                    .scaledToFill()
-                    .blur(radius: 5)
-                    .ignoresSafeArea()
-                    .opacity(enabled ? 0 : 1)
-                    .animation(.spring().speed(0.5), value: enabled)
-        )
-        .background(Color("BackgroundColor"))
-        .popover(isPresented: $isLoginPresented) {
-            LoginView()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .sheet(isPresented: $loginPresented) {
+                LoginView()
+            }
+            .onAppear {
+                wallpaperController.setup()
+                #if targetEnvironment(simulator)
+                #else
+                loginPresented = userToken == nil
+                #endif
+            }
+            .blur(radius: optionsPresented ? 2 : 0)
+            .scaleEffect(optionsPresented ? 0.85 : 1)
+            .animation(.spring(), value: optionsPresented)
+            
+            Color.black
+                .ignoresSafeArea()
+                .opacity(optionsPresented ? 0.5 : 0)
+                .animation(.spring(), value: optionsPresented)
+                .onTapGesture {
+                    if optionsPresented {
+                        optionsPresented = false
+                    }
+                }
+            
+            VStack {
+                Text("Settings :fr:")
+                    .foregroundColor(.white)
+                    .padding(.vertical, 200)
+            }
+            .frame(maxWidth: 300)
+            .background(MaterialView(.light)
+                .opacity(0.75)
+                .cornerRadius(20))
+            .padding()
+            .opacity(optionsPresented ? 1 : 0)
+            .animation(.spring(), value: optionsPresented)
         }
-        .safeAreaInset(edge: .bottom) {
-            Text(copyrightLine)
-                .foregroundColor(.white)
-                .font(.footnote)
-                .multilineTextAlignment(.center)
-                .padding(.top, 2)
-        }
-        .onAppear {
-            isLoginPresented = userToken == nil
-        }
+        
     }
     
     @ViewBuilder
@@ -83,8 +95,7 @@ struct ContentView: View {
             .aspectRatio(contentMode: .fit)
             .padding()
             .frame(maxWidth: 175)
-            .padding(.top, enabled ? 0 : 64)
-            .animation(.spring().speed(1), value: enabled)
+            .animation(.spring().speed(1), value: wallpaperController.enabled)
     }
     
     @ViewBuilder
@@ -93,7 +104,8 @@ struct ContentView: View {
             ForEach(ImageSourcing.APISource.allCases, id: \.rawValue) { sourceType in
                 VStack {
                     Button {
-                        imageSourcing.apiSource = sourceType
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        wallpaperController.apiSource = sourceType
                     } label: {
                         HStack {
                             Image(sourceType.rawValue)
@@ -105,20 +117,20 @@ struct ContentView: View {
                                 .foregroundColor(Color.white)
                                 .padding(.trailing, 20.0)
                             Spacer()
-                            Image(systemName: imageSourcing.apiSource == sourceType ? "checkmark.circle.fill" : "circle")
+                            Image(systemName: wallpaperController.apiSource == sourceType ? "checkmark.circle.fill" : "circle")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                             //                                            .foregroundColor(.accentColor)
                                 .frame(height: 22)
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(Color.white, Color.accentColor)
-                                .opacity(imageSourcing.apiSource == sourceType ? 1 : 0.25)
+                                .opacity(wallpaperController.apiSource == sourceType ? 1 : 0.25)
                                 .preferredColorScheme(.light)
                         }
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 6)
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal)
-                        .animation(.spring().speed(2), value: imageSourcing.apiSource)
+                        .animation(.spring().speed(2), value: wallpaperController.apiSource)
                         .background(Color(red: 1, green: 1, blue: 1, opacity: 0.00001))
                     }
                     .buttonStyle(.plain)
@@ -133,41 +145,83 @@ struct ContentView: View {
         .padding()
         .background(MaterialView(.systemUltraThinMaterialLight).opacity(0.5))
         .cornerRadius(20)
-        .frame(maxWidth: 300, maxHeight: enabled ? 0 : nil)
-        .opacity(enabled ? 0 : 1)
-        .animation(.spring().speed(2), value: enabled)
+        .frame(maxWidth: 300, maxHeight: wallpaperController.enabled ? 0 : nil)
+        .opacity(wallpaperController.enabled ? 0 : 1)
+        .animation(.spring().speed(2), value: wallpaperController.enabled)
     }
     
     @ViewBuilder
     var button: some View {
-        Button(action: {
-            enabled.toggle()
-            
-            if enabled {
-                
-            } else {
-                
+        HStack(spacing:0) {
+            Button(action: {
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                UIApplication.shared.alert(title: "Credits", body: "Made by sourcelocation (with a bit of help from llsc12).\n\nMIT - Skittyblock/WallpaperSetter\nPublic Domain - rileytestut/Clip \n\nIdea - FreshWall by SparkDev")
+            }) {
+                Image(systemName: "info.circle")
+                    .foregroundColor(.white)
+                    .padding()
+                    .font(.system(size: 16, weight: .bold))
             }
-        }) {
-            Image(systemName: enabled ? "checkmark" : "xmark")
-                .foregroundColor(.white)
-                .padding()
-                .frame(maxWidth: 300)
-                .font(.system(size: 16, weight: .black))
+            .background(MaterialView(.systemUltraThinMaterialLight).opacity(0.5))
+            .cornerRadius(32)
+            .opacity(wallpaperController.enabled ? 0 : 1)
+            .animation(.spring(), value: wallpaperController.enabled)
+            .padding(.trailing, 12)
+            .frame(maxWidth: wallpaperController.enabled ? 0 : nil)
+            
+            
+            Button(action: {
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                wallpaperController.enabled.toggle()
+            }) {
+                Image(systemName: wallpaperController.enabled ? "checkmark" : "xmark")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: 300)
+                    .font(.system(size: 16, weight: .bold))
+            }
+            .background(MaterialView(.systemUltraThinMaterialLight).opacity(0.5))
+            .cornerRadius(32)
+            .animation(.spring(), value: wallpaperController.enabled)
+            
+            Button(action: {
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                optionsPresented.toggle()
+            }) {
+                Image(systemName: "switch.2")
+                    .foregroundColor(.white)
+                    .padding()
+                    .font(.system(size: 16, weight: .black))
+            }
+            .background(MaterialView(.systemUltraThinMaterialLight).opacity(0.5))
+            .cornerRadius(32)
+            .opacity(wallpaperController.enabled ? 0 : 1)
+            .animation(.spring(), value: wallpaperController.enabled)
+            .padding(.leading, 12)
+            .frame(maxWidth: wallpaperController.enabled ? 0 : nil)
         }
-        .background(MaterialView(.systemUltraThinMaterialLight).opacity(0.5))
-        .cornerRadius(20)
-        .animation(.spring(), value: enabled)
+        .frame(maxWidth: 300)
     }
     
     @ViewBuilder
     var footer: some View {
-        Text(enabled ? "Activated and currently running." : copyrightLine)
-            .foregroundColor(.white)
-            .font(.footnote)
-            .padding(8)
-            .animation(.spring().speed(2), value: enabled)
+        VStack(spacing: 0) {
+            Text(wallpaperController.enabled ? "Activated and currently running." : copyrightLine)
+                .foregroundColor(.white)
+                .font(.footnote)
+                .padding(.top, 8)
+                .padding(.bottom, wallpaperController.enabled ? 4 : 10)
+                .animation(.spring().speed(1), value: wallpaperController.enabled)
+                .multilineTextAlignment(.center)
+            
+            Text("Try locking your device.")
+                .foregroundColor(.init(hex: "#AAA"))
+                .font(.footnote)
+                .frame(maxHeight: wallpaperController.enabled ? nil : 0)
+                .opacity(wallpaperController.enabled ? 1 : 0)
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

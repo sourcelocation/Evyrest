@@ -41,7 +41,7 @@ struct ParallaxMotionModifier: ViewModifier {
     var magnitude: Double
     
     func body(content: Content) -> some View {
-        let scale = magnitude * 2
+        let scale = magnitude
         let mag = magnitude * 15
         content
             .scaleEffect(scale, anchor: .center)

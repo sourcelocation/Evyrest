@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */; };
-		2122AF50295B331700BF7B0D /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4F295B331700BF7B0D /* MaterialView.swift */; };
 		2122AF52295B349400BF7B0D /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF51295B349400BF7B0D /* Alert++.swift */; };
+		21763939295DB97D0081518F /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21763938295DB97D0081518F /* ApplicationMonitor.swift */; };
+		2176393C295DBB900081518F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176393B295DBB900081518F /* AppDelegate.swift */; };
+		2176393E295DD4580081518F /* WallpaperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176393D295DD4580081518F /* WallpaperController.swift */; };
+		21D1A1A3295C55A600AC45BB /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 21D1A1A2295C55A600AC45BB /* Dynamic */; };
+		21E6D48C295BA395009FF3C8 /* WallpaperSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E6D48B295BA395009FF3C8 /* WallpaperSetter.swift */; };
 		42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE029364BAB00B5B58A /* EvyrestApp.swift */; };
 		42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE229364BAB00B5B58A /* ContentView.swift */; };
 		42FBACE529364BAF00B5B58A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FBACE429364BAF00B5B58A /* Assets.xcassets */; };
@@ -50,8 +54,11 @@
 
 /* Begin PBXFileReference section */
 		2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		2122AF4F295B331700BF7B0D /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		2122AF51295B349400BF7B0D /* Alert++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
+		21763938295DB97D0081518F /* ApplicationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
+		2176393B295DBB900081518F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2176393D295DD4580081518F /* WallpaperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperController.swift; sourceTree = "<group>"; };
+		21E6D48B295BA395009FF3C8 /* WallpaperSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSetter.swift; sourceTree = "<group>"; };
 		42FBACDD29364BAB00B5B58A /* Evyrest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evyrest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FBACE029364BAB00B5B58A /* EvyrestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvyrestApp.swift; sourceTree = "<group>"; };
 		42FBACE229364BAB00B5B58A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D1A1A3295C55A600AC45BB /* Dynamic in Frameworks */,
 				CE1A4F4C29429717006C1B19 /* IOKit.framework in Frameworks */,
 				CE1A4F4A2942970B006C1B19 /* CoreFoundation.framework in Frameworks */,
 				CEF9199529401C45007EF5F9 /* CoreServices.framework in Frameworks */,
@@ -103,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21E6D48A295BA382009FF3C8 /* Private APIs */ = {
+			isa = PBXGroup;
+			children = (
+				21E6D48B295BA395009FF3C8 /* WallpaperSetter.swift */,
+			);
+			path = "Private APIs";
+			sourceTree = "<group>";
+		};
 		42FBACD429364BAB00B5B58A = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				CEF9198729401920007EF5F9 /* Info.plist */,
+				2176393B295DBB900081518F /* AppDelegate.swift */,
 				42FBACE029364BAB00B5B58A /* EvyrestApp.swift */,
+				CEA54ACA2937EC44000920C6 /* API */,
+				21E6D48A295BA382009FF3C8 /* Private APIs */,
 				CE3C44B8294FA4B800E28A2D /* RemLog */,
 				CEF9198829401BF3007EF5F9 /* TS */,
 				AA5A56712937D7EF0037B6AA /* Views */,
@@ -158,13 +177,14 @@
 			isa = PBXGroup;
 			children = (
 				2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */,
-				CEA54ACA2937EC44000920C6 /* API */,
 				AA5A567D2937E7640037B6AA /* Extensions */,
 				AA5A567A2937E1EA0037B6AA /* Storage */,
 				AA5A56732937D96F0037B6AA /* Keychain */,
 				AA5A56802937EA1A0037B6AA /* Constants.swift */,
 				CE626352294A46E700F7B237 /* MaterialView.swift */,
 				CEBA3F19293A891C00CE4BB3 /* ParallaxEffect.swift */,
+				21763938295DB97D0081518F /* ApplicationMonitor.swift */,
+				2176393D295DD4580081518F /* WallpaperController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -194,7 +214,6 @@
 				AA5A567E2937E7750037B6AA /* Color++.swift */,
 				CE62634E294A409A00F7B237 /* String.swift */,
 				CE626350294A45E600F7B237 /* Alert++.swift */,
-				2122AF4F295B331700BF7B0D /* MaterialView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,6 +279,9 @@
 			dependencies = (
 			);
 			name = Evyrest;
+			packageProductDependencies = (
+				21D1A1A2295C55A600AC45BB /* Dynamic */,
+			);
 			productName = Evyrest;
 			productReference = 42FBACDD29364BAB00B5B58A /* Evyrest.app */;
 			productType = "com.apple.product-type.application";
@@ -288,6 +310,9 @@
 				Base,
 			);
 			mainGroup = 42FBACD429364BAB00B5B58A;
+			packageReferences = (
+				21D1A1A1295C55A600AC45BB /* XCRemoteSwiftPackageReference "Dynamic" */,
+			);
 			productRefGroup = 42FBACDE29364BAB00B5B58A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,22 +340,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2176393C295DBB900081518F /* AppDelegate.swift in Sources */,
 				AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */,
 				CEA54ACD2937EC44000920C6 /* SourcedRepoFetcher.swift in Sources */,
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
-				2122AF50295B331700BF7B0D /* MaterialView.swift in Sources */,
 				AA5A56812937EA1B0037B6AA /* Constants.swift in Sources */,
 				CE626351294A45E600F7B237 /* Alert++.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
 				CEF9199129401BF3007EF5F9 /* TSUtil.m in Sources */,
+				2176393E295DD4580081518F /* WallpaperController.swift in Sources */,
 				CEBA3F1A293A891D00CE4BB3 /* ParallaxEffect.swift in Sources */,
 				AA5A567F2937E7750037B6AA /* Color++.swift in Sources */,
+				21E6D48C295BA395009FF3C8 /* WallpaperSetter.swift in Sources */,
 				2122AF52295B349400BF7B0D /* Alert++.swift in Sources */,
 				AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */,
 				CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */,
 				CE62634F294A409A00F7B237 /* String.swift in Sources */,
+				21763939295DB97D0081518F /* ApplicationMonitor.swift in Sources */,
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,
@@ -466,13 +494,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Evyrest/Preview Content\"";
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Evyrest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,7 +512,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.sourceloc.evyrest.Evyrest;
+				PRODUCT_BUNDLE_IDENTIFIER = net.sourceloc.evyrest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -497,13 +529,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Evyrest/Preview Content\"";
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Evyrest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,7 +547,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.sourceloc.evyrest.Evyrest;
+				PRODUCT_BUNDLE_IDENTIFIER = net.sourceloc.evyrest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -541,6 +577,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21D1A1A1295C55A600AC45BB /* XCRemoteSwiftPackageReference "Dynamic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mhdhejazi/Dynamic";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21D1A1A2295C55A600AC45BB /* Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21D1A1A1295C55A600AC45BB /* XCRemoteSwiftPackageReference "Dynamic" */;
+			productName = Dynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42FBACD529364BAB00B5B58A /* Project object */;
 }

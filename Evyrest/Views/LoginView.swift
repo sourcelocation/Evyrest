@@ -23,7 +23,7 @@ struct LoginView: View {
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.accentColor)
                 .frame(width: 80)
-                .padding(.top, 48)
+                .padding(.top, 32)
             Text("Welcome to\nEvyrest")
                 .font(.system(size: 32, weight: .bold))
                 .multilineTextAlignment(.center)
@@ -36,19 +36,19 @@ struct LoginView: View {
                 Text("Please log in into your Sourced Repo account to continue")
                     .padding(10)
             }
-            TextField("Username", text: $username)
+            TextField("Email", text: $username)
                 .textFieldStyle(.roundedBorder)
-                .padding(.horizontal, 10)
-                .padding(.top, 20)
+                .padding(4)
                 .textInputAutocapitalization(.never)
             SecureField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
-                .padding(10)
+                .padding(.horizontal, 4)
             
             Spacer()
             Button("Forgot password?") {
                 
             }
+            .padding(4)
             Button(action: {
                 Task {
                     do {
@@ -63,7 +63,7 @@ struct LoginView: View {
                 }
             }) {
                 Text("Log in")
-                    .padding()
+                    .padding(12)
                     .frame(maxWidth: .infinity)
                     .background(Color.accentColor)
                     .foregroundColor(.white)
@@ -72,6 +72,7 @@ struct LoginView: View {
         }
         .padding()
         .frame(maxWidth: 325, maxHeight: .infinity)
+        .interactiveDismissDisabled()
     }
 }
 

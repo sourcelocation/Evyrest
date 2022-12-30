@@ -44,7 +44,7 @@ extension UIApplication {
     }
     
     func present(alert: UIAlertController) {
-        alert.view.tintColor = .init(red: 0, green: 0.255, blue: 0.349, alpha: 1)
+        alert.view.tintColor = .label
         if var topController = self.windows[0].rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController

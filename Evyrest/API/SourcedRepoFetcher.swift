@@ -5,19 +5,20 @@
 //  Created by exerhythm on 30.11.2022.
 //
 
-import Foundation
+import SwiftUI
 
 /// Sourced Repo fetcher
 class SourcedRepoFetcher: ObservableObject {
     
-    let serverURL = URL(string: "http://home.sourceloc.net:8080/")
+//    let serverURL = URL(string: "http://home.sourceloc.net:8080/")
+    let serverURL = "http://home.sourceloc.net:8080/v1/"
     var session = URLSession.shared
     
-    @KeychainStorage("userToken") var userToken: String?
+    @AppStorage("userToken") var userToken: String?
     
     /// Logs into Sourced and, if successful, returns a token
     func login(username: String, password: String) async throws {
-        var request = URLRequest(url: serverURL!.appendingPathComponent("account/login"))
+        var request = URLRequest(url: .init(string: serverURL + "account/login")!)
         request.httpMethod = "POST"
         let authBase64 = "\(username):\(password)".data(using: .utf8)!.base64EncodedString()
         request.addValue("Basic \(authBase64)", forHTTPHeaderField: "Authorization")
@@ -25,19 +26,26 @@ class SourcedRepoFetcher: ObservableObject {
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
         guard response.statusCode == 200 else { throw "Invalid email / password" }
         let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as! [String: Any]
-        guard let token = (json["token"] as? [String: Any])?["value"] as? String else { throw "Couldn't parse token" }
+        guard let token = (json["token"] as? [String: Any])?["value"] as? String else { throw "Couldn't parse token. Error code 2" }
         userToken = token
     }
     
     /// Logs into Sourced and, if successful, returns a token
     func linkDevice() async throws {
-        guard let userToken = userToken else { throw "Not logged in." }
-        var request = URLRequest(url: serverURL!.appendingPathComponent("account/linkDevice?id=\(udid())"))
+        guard let userToken = userToken else { throw "Not logged in. \(userToken)" }
+        var request = URLRequest(url: .init(string: serverURL + "account/linkDevice?id=\(udid())")!)
         request.httpMethod = "POST"
         request.addValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
         
         let (data, response) = try await session.data(for: request) as! (Data, HTTPURLResponse)
-        guard response.statusCode == 200 else { throw "You've reached maximum amount of linked devices to your account. Please remove some at repo.sourceloc.net/account/devices" }
+        print(response.statusCode)
+        switch response.statusCode {
+        case 406:
+            throw "You've reached maximum amount of linked devices to your account. Please remove some at repo.sourceloc.net/account/devices"
+        case 208, 200: break
+        default:
+            throw "Hm, something went wrong while linking the device. Error code 1-\(response.statusCode)"
+        }
     }
     
     private func udid() -> String {
