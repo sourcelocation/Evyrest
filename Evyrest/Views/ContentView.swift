@@ -72,16 +72,16 @@ struct ContentView: View {
                     }
                 }
             
-            VStack {
-                OptionsView()
-            }
-            .frame(maxWidth: 300)
-            .background(MaterialView(.light)
-                .opacity(0.75)
-                .cornerRadius(20))
-            .padding()
-            .opacity(optionsPresented ? 1 : 0)
-            .animation(.spring().speed(1.5), value: optionsPresented)
+            OptionsView()
+                .frame(maxWidth: 300)
+                .background(MaterialView(.light)
+                    .opacity(0.75)
+                    .cornerRadius(20))
+                .padding()
+                .opacity(optionsPresented ? 1 : 0)
+                .scaleEffect(optionsPresented ? 1 : 0.9)
+//                .offset(x: 0, y: optionsPresented ? 0 : UIScreen.main.bounds.height / 3)
+                .animation(.spring().speed(1.5), value: optionsPresented)
         }
         
     }
