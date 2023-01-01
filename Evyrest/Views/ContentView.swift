@@ -22,81 +22,83 @@ struct ContentView: View {
     
     
     var body: some View {
-        ZStack {
-            Color("BackgroundColor")
-                .ignoresSafeArea()
-            Image("Background")
-                .resizable()
-                .scaledToFill()
-                .blur(radius: 3)
-                .ignoresSafeArea()
-                .opacity(wallpaperController.enabled ? 0 : 1)
-                .scaleEffect(wallpaperController.enabled ? 1.1 : 1)
-                .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
-                .animation(.spring().speed(0.5), value: wallpaperController.enabled)
-                .animation(.spring(), value: optionsPresented || aboutPresented)
-                .parallaxed(magnitude: 1.2)
-//                    .animation(.spring(), value: aboutPresented)
-//                    .animation(.spring(), value: optionsPresented)
-            VStack {
-                Spacer()
-                header
-                if !wallpaperController.enabled {
+        GeometryReader { geometry in
+            ZStack {
+                Color("BackgroundColor")
+                    .ignoresSafeArea()
+                Image("Background")
+                    .resizable()
+                    .aspectRatio(geometry.size, contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                    .blur(radius: 3)
+                
+                    .opacity(wallpaperController.enabled ? 0 : 1)
+                    .scaleEffect(wallpaperController.enabled ? 1.2 : 1)
+                    .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
+                    .animation(.spring().speed(0.5), value: wallpaperController.enabled)
+                    .animation(.spring(), value: aboutPresented)
+                    .animation(.spring(), value: optionsPresented)
+                    .parallaxed(magnitude: 1.2)
+                VStack {
                     Spacer()
+                    header
+                    if !wallpaperController.enabled {
+                        Spacer()
+                    }
+                    sourceLocation
+                    if !wallpaperController.enabled {
+                        Spacer()
+                        Spacer()
+                    }
+                    button
+                    footer
+                    if wallpaperController.enabled {
+                        Spacer()
+                    }
                 }
-                sourceLocation
-                if !wallpaperController.enabled {
-                    Spacer()
-                    Spacer()
-                }
-                button
-                footer
-                if wallpaperController.enabled {
-                    Spacer()
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .sheet(isPresented: $loginPresented, content: {LoginView()})
-            .onAppear {
-                wallpaperController.setup()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .sheet(isPresented: $loginPresented, content: {LoginView()})
+                .onAppear {
+                    wallpaperController.setup()
 #if targetEnvironment(simulator) || DEBUG
 #else
-                loginPresented = userToken == nil
+                    loginPresented = userToken == nil
 #endif
-            }
-            .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
-            .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
-            .animation(.spring(), value: optionsPresented)
-            .animation(.spring(), value: aboutPresented)
-            
-            Color.black
-                .ignoresSafeArea()
-                .opacity(optionsPresented || aboutPresented ? 0.5 : 0)
+                }
+                .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
+                .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
                 .animation(.spring(), value: optionsPresented)
                 .animation(.spring(), value: aboutPresented)
-                .onTapGesture {
-                    if optionsPresented {
-                        optionsPresented = false
+                
+                Color.black
+                    .ignoresSafeArea()
+                    .opacity(optionsPresented || aboutPresented ? 0.5 : 0)
+                    .animation(.spring(), value: optionsPresented)
+                    .animation(.spring(), value: aboutPresented)
+                    .onTapGesture {
+                        if optionsPresented {
+                            optionsPresented = false
+                        }
+                        if aboutPresented {
+                            aboutPresented = false
+                        }
                     }
-                    if aboutPresented {
-                        aboutPresented = false
-                    }
+                // MARK: - Options & About
+                ZStack {
+                    AboutView()
+                        .opacity(aboutPresented ? 1 : 0)
+                    OptionsView()
+                        .opacity(optionsPresented ? 1 : 0)
                 }
-            // MARK: - Options & About
-            ZStack {
-                AboutView()
-                    .opacity(aboutPresented ? 1 : 0)
-                OptionsView()
-                    .opacity(optionsPresented ? 1 : 0)
+                .frame(maxWidth: 300)
+                .background(MaterialView(.light)
+                    .opacity(0.8)
+                    .cornerRadius(20))
+                .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
+                .opacity(optionsPresented || aboutPresented ? 1 : 0)
+                .animation(.spring().speed(1.5), value: optionsPresented)
+                .animation(.spring().speed(1.5), value: aboutPresented)
             }
-            .frame(maxWidth: 300)
-            .background(MaterialView(.light)
-                .opacity(0.8)
-                .cornerRadius(20))
-            .scaleEffect(optionsPresented || aboutPresented ? 1 : 0.9)
-            .opacity(optionsPresented || aboutPresented ? 1 : 0)
-            .animation(.spring().speed(1.5), value: optionsPresented)
-            .animation(.spring().speed(1.5), value: aboutPresented)
         }
     }
     

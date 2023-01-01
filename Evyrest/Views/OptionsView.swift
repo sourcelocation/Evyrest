@@ -90,13 +90,13 @@ struct OptionsView: View {
                                                 image
                                                     .resizable()
                                                     .scaledToFill()
-                                                    .frame(width: 70)
+                                                    .frame(width: 70, height: 140)
                                                     .clipped()
                                                     .overlay(alignment: .bottom) {
                                                         MaterialView(.dark)
-                                                            .frame(height: 40)
+                                                            .frame(height: 32)
                                                             .opacity(0.5)
-                                                        Image(systemName: "square.and.arrow.down")
+                                                        Image(systemName: "arrow.down")
                                                     }
                                                     .cornerRadius(8)
                                                 
@@ -112,13 +112,13 @@ struct OptionsView: View {
                                                 image
                                                     .resizable()
                                                     .scaledToFill()
-                                                    .frame(width: 70)
+                                                    .frame(width: 70, height: 140)
                                                     .clipped()
                                                     .overlay(alignment: .bottom) {
                                                         MaterialView(.dark)
-                                                            .frame(height: 40)
+                                                            .frame(height: 32)
                                                             .opacity(0.5)
-                                                        Image(systemName: "square.and.arrow.down")
+                                                        Image(systemName: "arrow.down")
                                                     }
                                                     .cornerRadius(8)
                                                 
@@ -135,13 +135,13 @@ struct OptionsView: View {
                                             image
                                                 .resizable()
                                                 .scaledToFill()
-                                                .frame(width: 70)
+                                                .frame(width: 70, height: 140)
                                                 .clipped()
                                                 .overlay(alignment: .bottom) {
                                                     MaterialView(.dark)
-                                                        .frame(height: 40)
+                                                        .frame(height: 32)
                                                         .opacity(0.5)
-                                                    Image(systemName: "square.and.arrow.down")
+                                                    Image(systemName: "arrow.down")
                                                 }
                                                 .cornerRadius(8)
                                             
@@ -154,7 +154,7 @@ struct OptionsView: View {
                             }
                         }
                     }
-                    .frame(height: 130)
+                    .frame(height: 140)
                 }
             }
             
