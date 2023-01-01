@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import notify
+import SystemConfiguration
 
 
 class WallpaperController: ObservableObject {
@@ -21,9 +22,15 @@ class WallpaperController: ObservableObject {
     @Published var searchTerm: String = "mountain"
     @Published var savedWallpapers: [URL] = []
     
+    @AppStorage("cacheLimit") var cacheLimit: Double = 50
+    @AppStorage("downloadOnCellular") var downloadOnCellular = true
+    @AppStorage("changeHomeScreen") var changeHomeScreen = true
+    @AppStorage("changeLockScreen") var changeLockScreen = true
+    
     var deviceLocked: Bool?
     
     func setup() {
+        NetworkStatus.shared.start()
         registerForNotifications()
         
         updateSavedWallpapers()
@@ -46,9 +53,10 @@ class WallpaperController: ObservableObject {
     }
     
     private func fetchImageFromCurrentSourceAndCache() async throws -> UIImage {
-        if let (fileName, image) = try? await ImageSourcing.getImage(from: apiSource, searchTerm: searchTerm) {
+        
+        if let (fileName, image) = try? await ImageSourcing.getImage(from: apiSource, searchTerm: searchTerm),
+            !(NetworkStatus.shared.connType == .cellular && downloadOnCellular) {
             // there is connection, new random image obtained
-            
             let sourceCacheDir = cacheDir.appendingPathComponent(apiSource.rawValue)
             print(sourceCacheDir)
             
@@ -64,7 +72,12 @@ class WallpaperController: ObservableObject {
             // no internet, use one that's cached
             
             let sourceCacheDir = cacheDir.appendingPathComponent(apiSource.rawValue)
-            guard let contents = try? FileManager.default.contentsOfDirectory(at: sourceCacheDir, includingPropertiesForKeys: nil), let randElement = contents.randomElement() else { throw "Couldn't fetch wallpapers from \(apiSource.rawValue) and no images were cached previously" }
+            
+            guard let contents = try? FileManager.default.contentsOfDirectory(at: sourceCacheDir, includingPropertiesForKeys: nil),
+                    let randElement = contents.randomElement() else {
+                throw "Couldn't fetch wallpapers from \(apiSource.rawValue) and no images were cached previously"
+            }
+            
             let randomImage = UIImage(contentsOfFile: randElement.path)
             return randomImage!
         }
@@ -80,7 +93,8 @@ class WallpaperController: ObservableObject {
                 try? FileManager.default.removeItem(at: sourceCacheDir)
             } else {
                 // check if size of active cache folder exceeds the limit
-                let contents = (try? FileManager.default.contentsOfDirectory(at: sourceCacheDir, includingPropertiesForKeys: nil)) ?? []
+                let contents = (try? FileManager.default.contentsOfDirectory(at: sourceCacheDir,
+                                                                             includingPropertiesForKeys: nil)) ?? []
                 let cacheLimit = Int(UserDefaults.standard.double(forKey: "cacheLimit"))
                 
                 if contents.count > cacheLimit {
@@ -122,7 +136,9 @@ class WallpaperController: ObservableObject {
         Task {
             do {
                 let image = try await fetchImageFromCurrentSourceAndCache()
-                WallpaperSetter.shared.setWallpaper(image: image)
+                WallpaperSetter.shared.setWallpaper(image: image,
+                                                    homescreen: changeHomeScreen,
+                                                    lockscreen: changeLockScreen)
             } catch {
                 await UIApplication.shared.alert(body: error.localizedDescription)
             }

@@ -35,7 +35,7 @@ class WallpaperSetter {
     /// 4. who knows what the last option is
 
     
-    func setWallpaper(image: UIImage) {
+    func setWallpaper(image: UIImage, homescreen: Bool, lockscreen: Bool) {
         loadPrivateFramework("SpringBoardFoundation.framework");
         
         let optionsLight = Dynamic.SBFWallpaperOptions()
@@ -61,9 +61,8 @@ class WallpaperSetter {
         let result = SBSUIWallpaperSetImages(
             NSDictionary(dictionary: ["light": image, "dark": image]),
             NSDictionary(dictionary: ["light": optionsLight.asAnyObject!, "dark": optionsDark.asAnyObject!]),
-            3,
-            UIUserInterfaceStyle.dark.rawValue)
-
-        
+            homescreen ? (lockscreen ? 3 : 2) : (lockscreen ? 1 : 0),
+            UIUserInterfaceStyle.dark.rawValue
+        )
     }
 }

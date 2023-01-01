@@ -29,12 +29,11 @@
 		CE1A4F502942B73E006C1B19 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1A4F4F2942B73E006C1B19 /* entitlements.plist */; };
 		CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2066F92937B92B008FC95B /* LoginView.swift */; };
 		CE62634F294A409A00F7B237 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62634E294A409A00F7B237 /* String++.swift */; };
-		CE626351294A45E600F7B237 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE626350294A45E600F7B237 /* Alert++.swift */; };
 		CE626353294A46E700F7B237 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE626352294A46E700F7B237 /* MaterialView.swift */; };
+		CE9BB50B29611C6F0056A85E /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BB50A29611C6F0056A85E /* NetworkStatus.swift */; };
 		CEA54ACD2937EC44000920C6 /* SourcedRepoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */; };
 		CEA54ACE2937EC44000920C6 /* ImageSourcing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */; };
 		CEBA3F1A293A891D00CE4BB3 /* ParallaxEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA3F19293A891C00CE4BB3 /* ParallaxEffect.swift */; };
-		CEF9199129401BF3007EF5F9 /* TSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF9198A29401BF3007EF5F9 /* TSUtil.m */; };
 		CEF9199529401C45007EF5F9 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF9199429401C45007EF5F9 /* CoreServices.framework */; };
 		CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF919A529401D91007EF5F9 /* RemoteLog.swift */; };
 /* End PBXBuildFile section */
@@ -78,17 +77,14 @@
 		CE2066F92937B92B008FC95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CE4F34EA29428C84006F1B36 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
 		CE62634E294A409A00F7B237 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
-		CE626350294A45E600F7B237 /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		CE626352294A46E700F7B237 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		CE9BB50A29611C6F0056A85E /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcedRepoFetcher.swift; sourceTree = "<group>"; };
 		CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSourcing.swift; sourceTree = "<group>"; };
 		CEBA3F19293A891C00CE4BB3 /* ParallaxEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxEffect.swift; sourceTree = "<group>"; };
 		CEF9197129401886007EF5F9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CEF9197329401886007EF5F9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		CEF9198729401920007EF5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		CEF9198A29401BF3007EF5F9 /* TSUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUtil.m; sourceTree = "<group>"; };
-		CEF9198E29401BF3007EF5F9 /* TSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUtil.h; sourceTree = "<group>"; };
-		CEF9198F29401BF3007EF5F9 /* CoreServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
 		CEF9199329401C15007EF5F9 /* Evyrest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Evyrest-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEF9199429401C45007EF5F9 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		CEF919A329401D7D007EF5F9 /* RemoteLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteLog.h; sourceTree = "<group>"; };
@@ -167,7 +163,6 @@
 				AA5A567D2937E7640037B6AA /* Extensions */,
 				21E6D48A295BA382009FF3C8 /* Private APIs */,
 				CE3C44B8294FA4B800E28A2D /* RemLog */,
-				CEF9198829401BF3007EF5F9 /* TS */,
 				AA5A56722937D94B0037B6AA /* Utilities */,
 				AA5A56712937D7EF0037B6AA /* Views */,
 				42FBACE429364BAF00B5B58A /* Assets.xcassets */,
@@ -193,6 +188,7 @@
 			children = (
 				AA5A567A2937E1EA0037B6AA /* Storage */,
 				AA5A56732937D96F0037B6AA /* Keychain */,
+				CE9BB50A29611C6F0056A85E /* NetworkStatus.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -221,7 +217,6 @@
 				2122AF51295B349400BF7B0D /* Alert++.swift */,
 				AA5A567E2937E7750037B6AA /* Color++.swift */,
 				CE62634E294A409A00F7B237 /* String++.swift */,
-				CE626350294A45E600F7B237 /* Alert++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,16 +253,6 @@
 				CEF9197329401886007EF5F9 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CEF9198829401BF3007EF5F9 /* TS */ = {
-			isa = PBXGroup;
-			children = (
-				CEF9198A29401BF3007EF5F9 /* TSUtil.m */,
-				CEF9198E29401BF3007EF5F9 /* TSUtil.h */,
-				CEF9198F29401BF3007EF5F9 /* CoreServices.h */,
-			);
-			path = TS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,9 +338,7 @@
 				42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */,
 				CE2066FA2937B92B008FC95B /* LoginView.swift in Sources */,
 				42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */,
-				CE626351294A45E600F7B237 /* Alert++.swift in Sources */,
 				AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */,
-				CEF9199129401BF3007EF5F9 /* TSUtil.m in Sources */,
 				2176393E295DD4580081518F /* WallpaperController.swift in Sources */,
 				CEBA3F1A293A891D00CE4BB3 /* ParallaxEffect.swift in Sources */,
 				AA5A567F2937E7750037B6AA /* Color++.swift in Sources */,
@@ -369,6 +352,7 @@
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,
+				CE9BB50B29611C6F0056A85E /* NetworkStatus.swift in Sources */,
 				2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */,
 				21D702CD295F14AE007AD19D /* OptionsView.swift in Sources */,
 			);
@@ -502,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Evyrest/Info.plist;
@@ -538,7 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = 92S6JX27W2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Evyrest/Info.plist;

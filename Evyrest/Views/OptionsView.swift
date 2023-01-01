@@ -11,9 +11,6 @@ import Photos
 struct OptionsView: View {
     @ObservedObject var wallpaperController = WallpaperController.shared
     
-    @AppStorage("cacheLimit") var cacheLimit: Double = 50
-    @AppStorage("disableOnCellular") var disableOnCellular = true
-    
     var body: some View {
         VStack(spacing: 20) {
             Button(action: {
@@ -166,28 +163,28 @@ struct OptionsView: View {
                     Text("Cache limit")
                         .font(.headline)
                     Spacer()
-                    Text(cacheLimit != 150 ? "\(Int(cacheLimit))" : "∞")
+                    Text(wallpaperController.cacheLimit != 150 ? "\(Int(wallpaperController.cacheLimit))" : "∞")
+                    Image(systemName: "photo.on.rectangle.angled")
                 }
                 .padding(.horizontal)
                 
-                Slider(value: $cacheLimit, in: 0...150)
+                Slider(value: $wallpaperController.cacheLimit, in: 0...150)
                     .tint(.init("BackgroundColor"))
                     .padding(.horizontal)
             }
             
             VStack {
-                Toggle(isOn: $disableOnCellular) {
-                    Text("Disable on Cellular")
-                        .font(.headline)
-                }
-                
-                Toggle(isOn: $disableOnCellular) {
+                Toggle(isOn: $wallpaperController.changeLockScreen) {
                     Text("Lock screen")
-                        .font(.headline)
+//                        .font(.headline)
                 }
-                Toggle(isOn: $disableOnCellular) {
+                Toggle(isOn: $wallpaperController.changeHomeScreen) {
                     Text("Home screen")
-                        .font(.headline)
+//                        .font(.headline)
+                }
+                Toggle(isOn: $wallpaperController.downloadOnCellular) {
+                    Text("Download on Cellular")
+//                        .font(.headline)
                 }
             }
             .padding(.horizontal)

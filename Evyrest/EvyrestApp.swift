@@ -24,6 +24,13 @@ struct EvyrestApp: App {
                 .preferredColorScheme(.dark)
                 .environmentObject(sourceRepoFetcher)
                 .onAppear {
+                    UserDefaults.standard.register(
+                        defaults: [
+                            "downloadOnCellular": false,
+                            "changeHomeScreen": true,
+                            "changeLockScreen": true
+                        ]
+                    )
                     ApplicationMonitor.shared.start()
                 }
         }
