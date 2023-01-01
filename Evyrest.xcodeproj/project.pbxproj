@@ -509,6 +509,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save the image to camera roll obviously";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -544,6 +545,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Evyrest runs in background to refresh wallpapers. Usually iOS kills such apps after a period of time. But Evyrest tricks iOS by requesting location data thus allowiing much longer sessions. Data is never stored anywhere, only fetched.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Needed to save the image to camera roll obviously";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

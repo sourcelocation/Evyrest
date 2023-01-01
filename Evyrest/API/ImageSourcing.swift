@@ -19,7 +19,7 @@ class ImageSourcing: ObservableObject {
         case local = "Local"
     }
     
-    static func getImage(from apiSource: APISource, searchTerm: String?) async throws -> UIImage {
+    static func getImage(from apiSource: APISource, searchTerm: String?) async throws -> (String, UIImage) {
         var url: String!
         
         if apiSource != .local {
@@ -48,10 +48,23 @@ class ImageSourcing: ObservableObject {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw "Non 200 code from \(apiSource). Error code 4-\((response as? HTTPURLResponse)?.statusCode ?? 0)" }
             guard let image = UIImage(data: data) else { throw "Response wasn't an image." }
-            return image
+            
+            var id: String?
+            switch apiSource {
+            case .unsplash:
+                id = response.url!.lastPathComponent + ".png"
+            case .pexels: break
+            case .microsoft:
+                id = URLComponents(string: response.url!.absoluteString)!
+                    .queryItems!.first(where: { $0.name == "id" })?.value!
+            case .local:
+                break
+            }
+            guard let id = id else { throw "Couldn't extract id from response from \(apiSource.rawValue). URL=\(response.url!.absoluteString)"}
+            return (id,image)
         } else {
             // TODO: Local
-            return UIImage(systemName: "person")!
+            return ("person", UIImage(systemName: "person")!)
         }
     }
 }
