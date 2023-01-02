@@ -67,6 +67,8 @@ struct OptionsView: View {
                             .padding()
                         Text("Recent wallpapers will appear here.")
                             .font(.footnote)
+                            .padding()
+                            .multilineTextAlignment(.center)
                     }
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {

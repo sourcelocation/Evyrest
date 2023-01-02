@@ -193,7 +193,7 @@ struct ContentView: View {
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                 wallpaperController.enabled.toggle()
             }) {
-                Image(systemName: wallpaperController.enabled ? "checkmark" : "xmark")
+                Image(systemName: wallpaperController.enabled ? "xmark" : "checkmark")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: 300)

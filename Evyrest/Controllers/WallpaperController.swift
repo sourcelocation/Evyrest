@@ -48,14 +48,21 @@ class WallpaperController: ObservableObject {
     private func updateSavedWallpapers() {
         // recents in settings
         DispatchQueue.main.async {
-            self.savedWallpapers = (try? FileManager.default.contentsOfDirectory(at: self.cacheDir.appendingPathComponent(self.apiSource.rawValue), includingPropertiesForKeys: nil).filter { $0.lastPathComponent != ".DS_Store" /* 💀 */ }) ?? []
+            self.savedWallpapers = (try? FileManager.default.contentsOfDirectory(at: self.cacheDir.appendingPathComponent(self.apiSource.rawValue), includingPropertiesForKeys: nil)
+                .filter { $0.lastPathComponent != ".DS_Store" /* 💀 */ }.sorted(by: {
+                    if let date1 = try? $0.resourceValues(forKeys: [.addedToDirectoryDateKey]).addedToDirectoryDate,
+                       let date2 = try? $1.resourceValues(forKeys: [.addedToDirectoryDateKey]).addedToDirectoryDate {
+                        return date1 > date2
+                    }
+                    return false
+                })) ?? []
         }
     }
     
     private func fetchImageFromCurrentSourceAndCache() async throws -> UIImage {
         
         if let (fileName, image) = try? await ImageSourcing.getImage(from: apiSource, searchTerm: searchTerm),
-            !(NetworkStatus.shared.connType == .cellular && downloadOnCellular) {
+            (NetworkStatus.shared.connType != .cellular || downloadOnCellular) {
             // there is connection, new random image obtained
             let sourceCacheDir = cacheDir.appendingPathComponent(apiSource.rawValue)
             print(sourceCacheDir)

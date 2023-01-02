@@ -26,6 +26,7 @@ struct EvyrestApp: App {
                 .onAppear {
                     UserDefaults.standard.register(
                         defaults: [
+                            "cacheLimit": 50.0,
                             "downloadOnCellular": false,
                             "changeHomeScreen": true,
                             "changeLockScreen": true
