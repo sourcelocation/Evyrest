@@ -1,5 +1,3 @@
 # Evyrest
 
-a thing which does a thing at a specific time when a other thing occurs
-
-so basicly sorcelocation made like actuall troll code and llsc idk but 112c made bad ui so wholseom 😳🫶💖
+![Artboard](https://user-images.githubusercontent.com/52459150/210447490-02d73567-41dd-437e-ad7f-a5a17934f55b.png)
