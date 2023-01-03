@@ -18,6 +18,7 @@
 		42FBACE129364BAB00B5B58A /* EvyrestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE029364BAB00B5B58A /* EvyrestApp.swift */; };
 		42FBACE329364BAB00B5B58A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBACE229364BAB00B5B58A /* ContentView.swift */; };
 		42FBACE529364BAF00B5B58A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FBACE429364BAF00B5B58A /* Assets.xcassets */; };
+		6F721C82296478E1001CFE46 /* WallpapersCraftWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F721C81296478E1001CFE46 /* WallpapersCraftWrapper.swift */; };
 		AA5A56762937D96F0037B6AA /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */; };
 		AA5A56772937D96F0037B6AA /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */; };
 		AA5A56792937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */; };
@@ -63,6 +64,7 @@
 		42FBACE029364BAB00B5B58A /* EvyrestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvyrestApp.swift; sourceTree = "<group>"; };
 		42FBACE229364BAB00B5B58A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42FBACE429364BAF00B5B58A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F721C81296478E1001CFE46 /* WallpapersCraftWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpapersCraftWrapper.swift; sourceTree = "<group>"; };
 		AA5A56742937D96F0037B6AA /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		AA5A56752937D96F0037B6AA /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		AA5A56782937DA9E0037B6AA /* SwiftUIPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPropertyWrapper.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				CEA54ACB2937EC44000920C6 /* SourcedRepoFetcher.swift */,
 				CEA54ACC2937EC44000920C6 /* ImageSourcing.swift */,
+				6F721C81296478E1001CFE46 /* WallpapersCraftWrapper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				21763939295DB97D0081518F /* ApplicationMonitor.swift in Sources */,
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
+				6F721C82296478E1001CFE46 /* WallpapersCraftWrapper.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,
 				CE9BB50B29611C6F0056A85E /* NetworkStatus.swift in Sources */,
 				2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */,
