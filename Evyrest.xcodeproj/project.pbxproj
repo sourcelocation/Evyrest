@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2122AF4D295B2E8E00BF7B0D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */; };
 		2122AF52295B349400BF7B0D /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122AF51295B349400BF7B0D /* Alert++.swift */; };
+		216B5CBB2964C8020059D378 /* TextField++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B5CBA2964C8020059D378 /* TextField++.swift */; };
 		21763939295DB97D0081518F /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21763938295DB97D0081518F /* ApplicationMonitor.swift */; };
 		2176393C295DBB900081518F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176393B295DBB900081518F /* AppDelegate.swift */; };
 		2176393E295DD4580081518F /* WallpaperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176393D295DD4580081518F /* WallpaperController.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		2122AF4C295B2E8E00BF7B0D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2122AF51295B349400BF7B0D /* Alert++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
+		216B5CBA2964C8020059D378 /* TextField++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField++.swift"; sourceTree = "<group>"; };
 		21763938295DB97D0081518F /* ApplicationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
 		2176393B295DBB900081518F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2176393D295DD4580081518F /* WallpaperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				2122AF51295B349400BF7B0D /* Alert++.swift */,
 				AA5A567E2937E7750037B6AA /* Color++.swift */,
 				CE62634E294A409A00F7B237 /* String++.swift */,
+				216B5CBA2964C8020059D378 /* TextField++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				CE62634F294A409A00F7B237 /* String++.swift in Sources */,
 				21763939295DB97D0081518F /* ApplicationMonitor.swift in Sources */,
 				CEF919A629401D91007EF5F9 /* RemoteLog.swift in Sources */,
+				216B5CBB2964C8020059D378 /* TextField++.swift in Sources */,
 				AA5A567C2937E2030037B6AA /* StorageManager.swift in Sources */,
 				6F721C82296478E1001CFE46 /* WallpapersCraftWrapper.swift in Sources */,
 				CE626353294A46E700F7B237 /* MaterialView.swift in Sources */,

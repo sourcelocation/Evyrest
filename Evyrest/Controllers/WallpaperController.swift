@@ -19,9 +19,9 @@ class WallpaperController: ObservableObject {
     
     @Published var enabled = false
     @Published var apiSource: ImageSourcing.APISource = .unsplash
-    @Published var searchTerm: String = "mountain"
     @Published var savedWallpapers: [URL] = []
     
+    @AppStorage("searchTerm") var searchTerm: String = "Mountain"
     @AppStorage("cacheLimit") var cacheLimit: Double = 50
     @AppStorage("downloadOnCellular") var downloadOnCellular = true
     @AppStorage("changeHomeScreen") var changeHomeScreen = true

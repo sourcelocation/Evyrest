@@ -28,13 +28,14 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 Image("Background")
                     .resizable()
-                    .aspectRatio(geometry.size, contentMode: .fill)
+                    .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
                     .blur(radius: 3)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
                 
                     .opacity(wallpaperController.enabled ? 0 : 1)
-                    .scaleEffect(wallpaperController.enabled ? 1.3 : 1.1)
-                    .scaleEffect(optionsPresented || aboutPresented ? 1 : 1.1)
+                    .scaleEffect(wallpaperController.enabled ? 1.3 : 1.15)
+                    .scaleEffect(optionsPresented || aboutPresented ? 1.075 : 1.15)
                     .animation(.spring().speed(0.5), value: wallpaperController.enabled)
                     .animation(.spring(), value: aboutPresented)
                     .animation(.spring(), value: optionsPresented)
@@ -59,10 +60,10 @@ struct ContentView: View {
                 .sheet(isPresented: $loginPresented, content: {LoginView()})
                 .onAppear {
                     wallpaperController.setup()
-#if targetEnvironment(simulator) || DEBUG
-#else
-                    loginPresented = userToken == nil
-#endif
+//#if targetEnvironment(simulator) || DEBUG
+//#else
+//                    loginPresented = userToken == nil
+//#endif
                 }
                 .blur(radius: optionsPresented || aboutPresented ? 2 : 0)
                 .scaleEffect(optionsPresented || aboutPresented ? 0.85 : 1)
@@ -148,6 +149,8 @@ struct ContentView: View {
                         .background(Color(red: 1, green: 1, blue: 1, opacity: 0.00001))
                     }
                     .buttonStyle(.plain)
+                    .disabled(sourceType != .unsplash)
+                    
                     if ImageSourcing.APISource.allCases.last! != sourceType {
                         Divider()
                             .background(.white)

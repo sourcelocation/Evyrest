@@ -11,6 +11,8 @@ import Photos
 struct OptionsView: View {
     @ObservedObject var wallpaperController = WallpaperController.shared
     
+    @State private var presentAlert = false
+    
     struct RecentWallpaperView: View {
         @State var action: () -> ()
         @State var url: URL
@@ -46,7 +48,7 @@ struct OptionsView: View {
     var body: some View {
         VStack(spacing: 20) {
             Button(action: {
-                
+                presentAlert = true
             }) {
                 ZStack {
                     Image("Background2")
@@ -61,7 +63,7 @@ struct OptionsView: View {
                         Text("Current theme")
                             .font(.footnote)
                             .foregroundColor(.white)
-                        Text("Nature")
+                        Text(wallpaperController.searchTerm)
                             .font(.headline)
                     }
                 }
@@ -105,11 +107,9 @@ struct OptionsView: View {
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
-                            ForEach(0...wallpaperController.savedWallpapers.count - 1, id: \.self) { n in
+                            ForEach(Array(wallpaperController.savedWallpapers.enumerated()), id: \.1) { (n, wallpaper) in
                                 let isFirst = n == 0 // make sure these are valid or the styling wont work
                                 let isLast = n == wallpaperController.savedWallpapers.count - 1
-                                
-                                let wallpaper = wallpaperController.savedWallpapers[n]
                                 
                                 let egg: () -> Void = {
                                     PHPhotoLibrary.shared().performChanges({
@@ -125,21 +125,6 @@ struct OptionsView: View {
                     }
                     .frame(height: 140)
                 }
-            }
-            
-            VStack {
-                HStack {
-                    Text("Cache limit")
-                        .font(.headline)
-                    Spacer()
-                    Text(wallpaperController.cacheLimit != 150 ? "\(Int(wallpaperController.cacheLimit))" : "∞")
-                    Image(systemName: "photo.on.rectangle.angled")
-                }
-                .padding(.horizontal)
-                
-                Slider(value: $wallpaperController.cacheLimit, in: 0...150)
-                    .tint(.init("BackgroundColor"))
-                    .padding(.horizontal)
             }
             
             VStack {
@@ -176,7 +161,10 @@ struct OptionsView: View {
             .padding(.bottom)
         }
         .foregroundColor(.white)
-}
+        .textFieldAlert(isPresented: $presentAlert) { () -> TextFieldAlert in
+            TextFieldAlert(title: "Set theme", message: "Enter any search query to be used for fetching from Unsplash. Keep them simple and using one word", text: Binding<String?>($wallpaperController.searchTerm))
+        }
+    }
 }
 
 struct OptionsView_Previews: PreviewProvider {

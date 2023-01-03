@@ -12,8 +12,8 @@ class ImageSourcing: ObservableObject {
     static let shared = ImageSourcing()
     
     enum APISource: String, CaseIterable, Codable {
-        case pexels = "Pexels"
         case unsplash = "Unsplash"
+        case pexels = "Pexels"
         case microsoft = "Microsoft"
         case local = "Local"
     }
