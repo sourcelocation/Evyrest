@@ -33,12 +33,11 @@ struct ContentView: View {
                     .blur(radius: 3)
                 
                     .opacity(wallpaperController.enabled ? 0 : 1)
-                    .scaleEffect(wallpaperController.enabled ? 1.2 : 1)
-                    .scaleEffect(optionsPresented || aboutPresented ? 0.95 : 1)
+                    .scaleEffect(wallpaperController.enabled ? 1.3 : 1.1)
+                    .scaleEffect(optionsPresented || aboutPresented ? 1 : 1.1)
                     .animation(.spring().speed(0.5), value: wallpaperController.enabled)
                     .animation(.spring(), value: aboutPresented)
                     .animation(.spring(), value: optionsPresented)
-                    .parallaxed(magnitude: 1.2)
                 VStack {
                     Spacer()
                     header

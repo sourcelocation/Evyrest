@@ -11,6 +11,38 @@ import Photos
 struct OptionsView: View {
     @ObservedObject var wallpaperController = WallpaperController.shared
     
+    struct RecentWallpaperView: View {
+        @State var action: () -> ()
+        @State var url: URL
+        
+        var body: some View {
+            Button(action: action) {
+                AsyncImage(url: url) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 140)
+                        .clipped()
+                        .overlay(alignment: .bottom) {
+                            Image(systemName: "arrow.down")
+                                .padding(4)
+                                .frame(maxWidth: .infinity)
+                                .background {
+                                    MaterialView(.dark)
+                                        .frame(height: 32)
+                                        .opacity(0.5)
+                                }
+                        }
+                        .cornerRadius(8)
+                    
+                } placeholder: {
+                    Color.gray
+                        .frame(width: 70)
+                }
+            }
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 20) {
             Button(action: {
@@ -85,74 +117,9 @@ struct OptionsView: View {
                                     })
                                 }
                                 
-                                if isFirst || isLast {
-                                    if isFirst {
-                                        Button(action: egg) {
-                                            AsyncImage(url: wallpaper) { image in
-                                                image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 70, height: 140)
-                                                    .clipped()
-                                                    .overlay(alignment: .bottom) {
-                                                        MaterialView(.dark)
-                                                            .frame(height: 32)
-                                                            .opacity(0.5)
-                                                        Image(systemName: "arrow.down")
-                                                    }
-                                                    .cornerRadius(8)
-                                                
-                                            } placeholder: {
-                                                Color.gray
-                                                    .frame(width: 70)
-                                            }
-                                        }
-                                        .padding(.leading)
-                                    } else {
-                                        Button(action: egg) {
-                                            AsyncImage(url: wallpaper) { image in
-                                                image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 70, height: 140)
-                                                    .clipped()
-                                                    .overlay(alignment: .bottom) {
-                                                        MaterialView(.dark)
-                                                            .frame(height: 32)
-                                                            .opacity(0.5)
-                                                        Image(systemName: "arrow.down")
-                                                    }
-                                                    .cornerRadius(8)
-                                                
-                                            } placeholder: {
-                                                Color.gray
-                                                    .frame(width: 70)
-                                            }
-                                        }
-                                        .padding(.trailing)
-                                    }
-                                } else {
-                                    Button(action: egg) {
-                                        AsyncImage(url: wallpaper) { image in
-                                            image
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 70, height: 140)
-                                                .clipped()
-                                                .overlay(alignment: .bottom) {
-                                                    MaterialView(.dark)
-                                                        .frame(height: 32)
-                                                        .opacity(0.5)
-                                                    Image(systemName: "arrow.down")
-                                                }
-                                                .cornerRadius(8)
-                                            
-                                        } placeholder: {
-                                            Color.gray
-                                                .frame(width: 70)
-                                        }
-                                    }
-                                }
+                                RecentWallpaperView(action: egg, url: wallpaper)
+                                    .padding(.leading, isFirst ? 16 : 0)
+                                    .padding(.trailing, isLast ? 16 : 0)
                             }
                         }
                     }
@@ -176,17 +143,32 @@ struct OptionsView: View {
             }
             
             VStack {
+                HStack {
+                    Text("Cache limit")
+                        .font(.headline)
+                    Spacer()
+                    Text(wallpaperController.cacheLimit != 150 ? "\(Int(wallpaperController.cacheLimit))" : "∞")
+                    Image(systemName: "photo.on.rectangle.angled")
+                }
+                .padding(.horizontal)
+                
+                Slider(value: $wallpaperController.cacheLimit, in: 0...150)
+                    .tint(.init("BackgroundColor"))
+                    .padding(.horizontal)
+            }
+            
+            VStack {
                 Toggle(isOn: $wallpaperController.changeLockScreen) {
                     Text("Lock screen")
-//                        .font(.headline)
+                    //                        .font(.headline)
                 }
                 Toggle(isOn: $wallpaperController.changeHomeScreen) {
                     Text("Home screen")
-//                        .font(.headline)
+                    //                        .font(.headline)
                 }
                 Toggle(isOn: $wallpaperController.downloadOnCellular) {
                     Text("Download on Cellular")
-//                        .font(.headline)
+                    //                        .font(.headline)
                 }
             }
             .padding(.horizontal)
@@ -194,7 +176,7 @@ struct OptionsView: View {
             .padding(.bottom)
         }
         .foregroundColor(.white)
-    }
+}
 }
 
 struct OptionsView_Previews: PreviewProvider {
